@@ -24,7 +24,7 @@ else
     output=$(fish -c 'omf --version')
     if [ "$?" -ne 0 ]; then
         echo "Installing oh-my-fish..."
-        output=$(`curl -L http://get.oh-my.fish | fish`)
+        output=$(curl -L http://get.oh-my.fish | fish)
     else
         echo "Updating oh-my-fish..."
         output=$(fish -c 'omf update')
