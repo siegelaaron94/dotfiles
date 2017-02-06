@@ -35,7 +35,7 @@ if [ "$EUID" -eq 0 ]; then
     gnome-shell-extension-tool -e dash-to-dock@micxgx.gmail.com
 
     #enable user theme
-    gnome-shell-extension-tool -e user-theme
+    gnome-shell-extension-tool -e user-themes
 
     rm gnomeshell-extension-manage
 
@@ -46,12 +46,15 @@ if [ "$EUID" -eq 0 ]; then
     mv Flat-Remix/Flat\ Remix /usr/share/icons
     rm -rf Flat-Plat Flat-Remix
 
+    gnome-shell --replace &
+
     gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
     gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
     gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
     gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
 
     gnome-shell --replace &
+
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
     if ! $(fish -c 'type omf' > /dev/null); then
