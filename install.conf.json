@@ -11,6 +11,7 @@
     },
     {
         "shell": [
+            ["git pull;git submodule update;git submodule init","Setting up submodules"],
             ["sudo apt-get update", "Updating package cache"],
             ["sudo apt-get -y install build-essential cmake curl fish git python-dev python-pip", "Installing system development packages"],
             ["sudo pip install pip --upgrade", "Upgrading pip"],
@@ -36,7 +37,13 @@
         "shell":[
             {
                 "command":"oh-my-fish/bin/install --offline -y",
-                "stdout":true
+                "stdout":true,
+                "description": "Installing oh-my-fish"
+            },
+            {
+                "command":"fish -c omf install robbyrussell",
+                "stdout":true,
+                "description": "Installing robbyrussell theme"
             }
         ]
     },
