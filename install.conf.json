@@ -22,8 +22,8 @@
             ["sudo pip install pip --upgrade", "Upgrading pip"],
             ["sudo pip install conan autopep8 jedi", "Installing python development packages"],
             ["sudo Flat-Plat/install.sh", "Installing Flat Remix gnome shell theme"],
-            ["gsettings set org.gnome.desktop.interface gtk-theme \"Flat-Plat\";gsettings set org.gnome.desktop.wm.preferences theme \"Flat-Plat\";gsettings set org.gnome.shell.extensions.user-theme name \"Flat-Plat\"", "Setting Flat-Plat as user theme"]
-            ["sudo rm -rf /usr/share/icons/Flat\\ Remix;cp Flat-Remix/Flat\\ Remix /usr/share/icons;", "Installing Flat Remix icon theme"],
+            ["gsettings set org.gnome.desktop.interface gtk-theme \"Flat-Plat\";gsettings set org.gnome.desktop.wm.preferences theme \"Flat-Plat\";gsettings set org.gnome.shell.extensions.user-theme name \"Flat-Plat\"", "Setting Flat-Plat as user theme"],
+            ["sudo rm -rf /usr/share/icons/Flat\\ Remix;cp Flat-Remix/Flat\\ Remix /usr/share/icons;", "Installing Flat Remix icon theme"]
         ]
     }
 ]
