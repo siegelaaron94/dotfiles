@@ -45,42 +45,42 @@ if [ "$EUID" -eq 0 ]; then
     mv Flat-Remix/Flat\ Remix /usr/share/icons
     rm -rf Flat-Plat Flat-Remix
 else
-    # gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
-    # gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
-    # gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
-    # gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
-    #
-    # sudo chsh -s /usr/bin/fish
-    #
-    # if ! $(fish -c 'type omf' > /dev/null); then
-    #     echo "Downloading oh-my-fish..."
-    #     curl -L http://get.oh-my.fish > oh-my-fish-install
-    #     echo "Installing oh-my-fish..."
-    #     fish oh-my-fish-install --path=~/.local/share/omf --config=~/.config/omf
-    #
-    #     packages=$(fish -c 'omf list')
-    #     if ! [[ $packages =~  robbyrussell ]]; then
-    #         echo "Installing robbyrussell theme..."
-    #         fish -c 'omf install robbyrussell'
-    #     fi
-    # else
-    #     echo "Updating oh-my-fish..."
-    #     output=$(fish -c 'omf update')
-    # fi
-    #
-    # apm install --packages-file atom-package-list.txt
-    # apm update
+    gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
+    gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
+    gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
+    gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
 
-    rm ~/.ycm_extra_conf.py
+    sudo chsh -s /usr/bin/fish
+
+    if ! $(fish -c 'type omf' > /dev/null); then
+        echo "Downloading oh-my-fish..."
+        curl -L http://get.oh-my.fish > oh-my-fish-install
+        echo "Installing oh-my-fish..."
+        fish oh-my-fish-install --path=~/.local/share/omf --config=~/.config/omf
+
+        packages=$(fish -c 'omf list')
+        if ! [[ $packages =~  robbyrussell ]]; then
+            echo "Installing robbyrussell theme..."
+            fish -c 'omf install robbyrussell'
+        fi
+    else
+        echo "Updating oh-my-fish..."
+        output=$(fish -c 'omf update')
+    fi
+
+    apm install --packages-file atom-package-list.txt
+    apm update
+
+    rm -f  ~/.ycm_extra_conf.py
     ln -s $PWD/ycm_extra_conf.py ~/.ycm_extra_conf.py
 
-    rm ~/.atom/keymap.cson
+    rm -f ~/.atom/keymap.cson
     ln -s $PWD/atom/keymap.cson ~/.atom/keymap.cson
 
-    rm ~/.atom/config.cson
+    rm -f ~/.atom/config.cson
     ln -s $PWD/atom/config.cson ~/.atom/config.cson
 
-    rm ~/.config/fish/config.fish
+    rm -f ~/.config/fish/config.fish
     ln -s $PWD/config/fish/config.fish ~/.config/fish/config.fish
-    
+
 fi
