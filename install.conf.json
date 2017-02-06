@@ -13,7 +13,8 @@
         "link": {
             "~/.atom/config.cson": "atom/config.cson",
             "~/.atom/keymap.cson": "atom/keymap.cson",
-            "~/.config/fish/config.fish": "config/fish/config.fish"
+            "~/.config/fish/config.fish": "config/fish/config.fish",
+            "/usr/share/icons": "Flat-Remix/Flat Remix",
         }
     },
     {
