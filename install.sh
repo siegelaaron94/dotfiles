@@ -28,8 +28,8 @@ if [ "$EUID" -eq 0 ]; then
 
     git clone https://github.com/nana-4/Flat-Plat.git
     git clone https://github.com/daniruiz/Flat-Remix.git
-    mv Flat-Plat /usr/share/themes
-    mv Flat-Remix/Flat-Remix /usr/share/icons
+    Flat-Remix/install.sh
+    mv Flat-Remix/Flat\ Remix /usr/share/icons
 
     gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
     gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
