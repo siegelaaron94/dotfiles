@@ -32,7 +32,7 @@
 
             ["dconf load / < database.dconf", "Setting up dconf database"],
             {
-                "command": "oh-my-fish/bin/install --offline -y;omf install robbyrussell",
+                "command": "oh-my-fish/bin/install --offline -y",
                 "stdout": true,
                 "description":"Installing oh-my-fish"
             }
@@ -40,6 +40,7 @@
     },
     {
         "link": {
+            "~/.config/omf/theme": "config/omf/theme",
             "~/.atom/config.cson": "atom/config.cson",
             "~/.atom/keymap.cson": "atom/keymap.cson",
             "~/.config/fish/config.fish": "config/fish/config.fish",

@@ -2,6 +2,8 @@
 
 set -e
 
+
+
 CONFIG="install.conf.json"
 DOTBOT_DIR="dotbot"
 
