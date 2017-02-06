@@ -29,7 +29,7 @@ if [ "$EUID" -eq 0 ]; then
     wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
     chmod +x gnomeshell-extension-manage
     #install dash to dock
-    gnomeshell-extension-manage --install --extension-id 307
+    ./gnomeshell-extension-manage --install --extension-id 307
     #rm gnomeshell-extension-manage
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
