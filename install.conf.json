@@ -11,15 +11,17 @@
     },
     {
         "shell": [
+            ["sudo apt-get update", "Updating package cache"],
             ["sudo apt-get -y install build-essential cmake curl fish git python-dev python-pip", "Installing system development packages"],
             ["sudo pip install pip --upgrade", "Upgrading pip"],
             ["sudo pip install conan autopep8 jedi", "Installing python development packages"],
 
             ["wget https://atom.io/download/deb -O atom.deb;sudo dpkg -i atom.deb", "Installing newest version of atom"],
             ["apm install --packages-file atom-package-list.txt","Installing atom packages"],
-            ["apm update", "Updating atom packages"]
+            ["apm update", "Updating atom packages"],
 
-            ["wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome-stable_current_amd64.deb; sudo dpkg -i google-chrome-stable_current_amd64.deb", "Installing google chrome"]
+            ["sudo apt-get install libappindicator1 libindicator7 libpango1.0-0 libpangox-1.0-0", "Install google chrome dependencies"],
+            ["wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb -O google-chrome-stable_current_amd64.deb; sudo dpkg -i google-chrome-stable_current_amd64.deb", "Installing google chrome"],
 
             ["wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage -O gnomeshell-extension-manage; chmod +x gnomeshell-extension-manage", "Downloading gnome shell extension manager"],
 
