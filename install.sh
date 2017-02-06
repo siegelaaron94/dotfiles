@@ -26,16 +26,6 @@ if [ "$EUID" -eq 0 ]; then
         apt-get -f install
     fi
 
-    git clone https://github.com/nana-4/Flat-Plat.git
-    git clone https://github.com/daniruiz/Flat-Remix.git
-    Flat-Remix/install.sh
-    mv Flat-Remix/Flat\ Remix /usr/share/icons
-
-    gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
-    gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
-    gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
-    gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix"
-
     wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
     chmod +x gnomeshell-extension-manage
 
@@ -48,6 +38,18 @@ if [ "$EUID" -eq 0 ]; then
     gnome-shell-extension-tool -e user-theme
 
     rm gnomeshell-extension-manage
+
+    git clone https://github.com/nana-4/Flat-Plat.git
+    git clone https://github.com/daniruiz/Flat-Remix.git
+    Flat-Remix/install.sh
+    mv Flat-Remix/Flat\ Remix /usr/share/icons
+    rm -rf Flat-Plat Flat-Remix
+
+    gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
+    gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
+    gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
+    gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
+
     gnome-shell --replace &
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
