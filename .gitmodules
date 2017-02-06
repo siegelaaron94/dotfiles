@@ -7,3 +7,6 @@
 [submodule "Flat-Remix"]
 	path = Flat-Remix
 	url = https://github.com/daniruiz/Flat-Remix.git
+[submodule "oh-my-fish"]
+	path = oh-my-fish
+	url = https://github.com/oh-my-fish/oh-my-fish
