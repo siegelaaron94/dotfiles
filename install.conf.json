@@ -11,9 +11,9 @@
     },
     {
         "link": {
-            "~/.atom/config.cson": null,
-            "~/.atom/keymap.cson": null,
-            "~/.config/fish/config.fish": null
+            "~/.atom/config.cson": "atom/config.cson",
+            "~/.atom/keymap.cson": "atom/keymap.cson",
+            "~/.config/fish/config.fish": "config/fish/config.fish"
         }
     }
 ]
