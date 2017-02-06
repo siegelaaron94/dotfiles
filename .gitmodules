@@ -1,3 +1,9 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+[submodule "Flat-Plat"]
+	path = Flat-Plat
+	url = https://github.com/nana-4/Flat-Plat.git
+[submodule "Flat-Remix"]
+	path = Flat-Remix
+	url = https://github.com/daniruiz/Flat-Remix.git
