@@ -17,7 +17,7 @@
             ["sudo pip install pip --upgrade", "Upgrading pip"],
             ["sudo pip install conan autopep8 jedi", "Installing python development packages"],
 
-            ["wget -N https://atom.io/download/deb; sudo dpkg -i deb", "Installing newest version of atom"],
+            ["wget -N https://atom.io/download/deb -O atom.deb; sudo dpkg -i atom.deb", "Installing newest version of atom"],
             ["apm install --packages-file atom-package-list.txt","Installing atom packages"],
             ["apm update", "Updating atom packages"],
 
@@ -35,11 +35,7 @@
     },
     {
         "shell":[
-            {
-                "command":"bash -c oh-my-fish/bin/install --offline -y",
-                "stdout":true,
-                "description": "Installing oh-my-fish"
-            },
+            ["oh-my-fish/bin/install --offline -y","Installing oh-my-fish"],
             {
                 "command":"fish -c omf install robbyrussell",
                 "stdout":true,
