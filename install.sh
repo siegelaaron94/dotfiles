@@ -7,8 +7,6 @@ if [ "$EUID" -eq 0 ]; then
 
     pip install conan autopep8 jedi
 
-    chsh -s /usr/bin/fish
-
     if ! type "atom" > /dev/null; then
         echo "Downloading atom..."
         wget https://atom.io/download/deb -O atom.deb
@@ -26,6 +24,7 @@ if [ "$EUID" -eq 0 ]; then
         apt-get -f install
     fi
 
+    #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
     wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
     chmod +x gnomeshell-extension-manage
 
@@ -45,34 +44,43 @@ if [ "$EUID" -eq 0 ]; then
     ./Flat-Plat/install.sh
     mv Flat-Remix/Flat\ Remix /usr/share/icons
     rm -rf Flat-Plat Flat-Remix
-
-    gnome-shell --replace &
-
-    gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
-    gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
-    gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
-    gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
-
-    gnome-shell --replace &
-
-    #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
-    if ! $(fish -c 'type omf' > /dev/null); then
-        echo "Downloading oh-my-fish..."
-        curl -L http://get.oh-my.fish > oh-my-fish-install
-        echo "Installing oh-my-fish..."
-        fish oh-my-fish-install --path=~/.local/share/omf --config=~/.config/omf
-    else
-        echo "Updating oh-my-fish..."
-        output=$(fish -c 'omf update')
-    fi
+    # gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
+    # gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
+    # gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
+    # gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
+    #
+    # sudo chsh -s /usr/bin/fish
+    #
+    # if ! $(fish -c 'type omf' > /dev/null); then
+    #     echo "Downloading oh-my-fish..."
+    #     curl -L http://get.oh-my.fish > oh-my-fish-install
+    #     echo "Installing oh-my-fish..."
+    #     fish oh-my-fish-install --path=~/.local/share/omf --config=~/.config/omf
+    #
+    #     packages=$(fish -c 'omf list')
+    #     if ! [[ $packages =~  robbyrussell ]]; then
+    #         echo "Installing robbyrussell theme..."
+    #         fish -c 'omf install robbyrussell'
+    #     fi
+    # else
+    #     echo "Updating oh-my-fish..."
+    #     output=$(fish -c 'omf update')
+    # fi
+    #
+    # apm install --packages-file atom-package-list.txt
+    # apm update
 
-    packages=$(fish -c 'omf list')
-    if ! [[ $packages =~  robbyrussell ]]; then
-        echo "Installing robbyrussell theme..."
-        fish -c 'omf install robbyrussell'
-    fi
+    rm ~/.ycm_extra_conf.py
+    ln -s $PWD/ycm_extra_conf.py ~/.ycm_extra_conf.py
 
-    apm install --packages-file atom-package-list.txt
-    apm update
+    rm ~/.atom/keymap.cson
+    ln -s $PWD/atom/keymap.cson ~/.atom/keymap.cson
+
+    rm ~/.atom/config.cson
+    ln -s $PWD/atom/config.cson ~/.atom/config.cson
+
+    rm ~/.config/fish/config.fish
+    ln -s $PWD/config/fish/config.fish ~/.config/fish/config.fish
+    
 fi
