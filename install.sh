@@ -27,8 +27,7 @@ if [ "$EUID" -eq 0 ]; then
     #https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
-    output=$(fish -c 'omf --version')
-    if [ "$?" -ne 0 ]; then
+    if ! fish -c 'type omf' > /dev/null; then
         echo "Installing oh-my-fish..."
         output=$(curl -L http://get.oh-my.fish | fish)
     else
