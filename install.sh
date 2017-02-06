@@ -42,7 +42,7 @@ if [ "$EUID" -eq 0 ]; then
     rm -rf /usr/share/icons/Flat\ Remix
     git clone https://github.com/nana-4/Flat-Plat.git
     git clone https://github.com/daniruiz/Flat-Remix.git
-    ./Flat-Remix/install.sh
+    ./Flat-Plat/install.sh
     mv Flat-Remix/Flat\ Remix /usr/share/icons
     rm -rf Flat-Plat Flat-Remix
 
