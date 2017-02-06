@@ -1,8 +1,8 @@
 #!/bin/bash
 
 if [ "$EUID" -eq 0 ]; then
-    apt-get update
-    apt-get install build-essential cmake curl fish git python-dev python-pip
+    apt-get -y update
+    apt-get -y install build-essential cmake curl fish git python-dev python-pip
 
     chsh -s /usr/bin/fish
 
@@ -11,6 +11,12 @@ if [ "$EUID" -eq 0 ]; then
     echo "Installing atom..."
     dpkg -i atom.deb
     rm atom.deb
+
+    echo "Downloading google chrome..."
+    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+    echo "Installing google chrome..."
+    dpkg -i google-chrome-stable_current_amd64.deb
+    rm google-chrome-stable_current_amd64.deb
 
     #https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
