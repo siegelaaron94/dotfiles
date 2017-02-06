@@ -1,8 +1,7 @@
 #!/bin/bash
 
 echo "Updating submodules..."
-git submodule update
-git submodule init
+git submodule update --init --recursive
 
 echo "Downlading gnomeshell-extension-manage..."
 wget -N https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage -O gnomeshell-extension-manage
@@ -31,6 +30,11 @@ sudo Flat-Plat/install.sh
 sudo rm -rf '/usr/share/icons/Flat Remix'
 sudo cp -r 'Flat-Remix/Flat Remix' /usr/share/icons
 ./gnomeshell-extension-manage --install --extension-id 307
+
+echo "Installing ycmd..."
+sudo apt-get -y install golang-go mono-complete mono-xbuild nodejs npm rustc cargo
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+./ycmd/build.py --clang-completer --gocode-completer --tern-completer #--racer-completer
 
 echo "Install oh-my-fish..."
 oh-my-fish/bin/install --offline -y
