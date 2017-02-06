@@ -31,7 +31,7 @@
             ["./gnomeshell-extension-manage --install --extension-id 307", "Installing gnome shell dash to dock extension"],
 
             ["dconf load / < database.dconf", "Setting up dconf database"],
-            ["fish -c omf install robbyrussell", "Installing robbyrussell theme"]
+            ["oh-my-fish/bin/install --offline -y;omf install robbyrussell", "Installing oh-my-fish"]
         ]
     },
     {

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get update
+
+
 if [ "$EUID" -eq 0 ]; then
     apt-get -y update
     apt-get -y install build-essential cmake curl fish git python-dev python-pip
