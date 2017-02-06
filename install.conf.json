@@ -18,7 +18,7 @@
     },
     {
         "shell": [
-            ["oh-my-fish/bin/install", "Installing oh-my-fish"],
+            ["oh-my-fish/bin/install --offline -y", "Installing oh-my-fish"],
             ["sudo apt-get -y install build-essential cmake curl fish git python-dev python-pip", "Installing system development packages"],
             ["sudo pip install pip --upgrade", "Upgrading pip"],
             ["sudo pip install conan autopep8 jedi", "Installing python development packages"],
