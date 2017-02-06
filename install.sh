@@ -26,11 +26,29 @@ if [ "$EUID" -eq 0 ]; then
         apt-get -f install
     fi
 
+    git clone https://github.com/nana-4/Flat-Plat.git
+    git clone https://github.com/daniruiz/Flat-Remix.git
+    mv Flat-Plat /usr/share/themes
+    mv Flat-Remix/Flat-Remix /usr/share/icons
+
+    gsettings set org.gnome.desktop.interface gtk-theme "Flat-Plat"
+    gsettings set org.gnome.desktop.wm.preferences theme "Flat-Plat"
+    gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
+    gsettings set org.gnome.desktop.interface icon-theme "Flat-Remix"
+
     wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage
     chmod +x gnomeshell-extension-manage
+
     #install dash to dock
     ./gnomeshell-extension-manage --install --extension-id 307
-    #rm gnomeshell-extension-manage
+    #enable dash to dock
+    gnome-shell-extension-tool -e dash-to-dock@micxgx.gmail.com
+
+    #enable user theme
+    gnome-shell-extension-tool -e user-theme
+
+    rm gnomeshell-extension-manage
+    gnome-shell --replace &
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
     if ! $(fish -c 'type omf' > /dev/null); then
