@@ -21,10 +21,6 @@
     {
         "shell": [
             ["apm install --packages-file atom-package-list.txt","Installing atom packages"],
-            ["apm update", "Updating atom packages"],
-
-            [";", "Installing Flat Remix icon theme"],
-            ["", "Installing gnome shell dash to dock extension"],
             ["dconf load / < database.dconf", "Setting up dconf database"]
         ]
     }
