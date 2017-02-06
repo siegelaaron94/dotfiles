@@ -35,4 +35,7 @@ else
         echo "Installing robbyrussell theme..."
         fish -c 'omf install robbyrussell'
     fi
+
+    apm install --packages-file atom-package-list.txt
+    apm update
 fi
