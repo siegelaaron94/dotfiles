@@ -28,8 +28,10 @@ if [ "$EUID" -eq 0 ]; then
     #http://bernaerts.dyndns.org/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script
 else
     if ! $(fish -c 'type omf' > /dev/null); then
+        echo "Downloading oh-my-fish..."
+        curl -L http://get.oh-my.fish > oh-my-fish-install
         echo "Installing oh-my-fish..."
-        `curl -L http://get.oh-my.fish | fish`
+        fish oh-my-fish-install --path=~/.local/share/omf --config=~/.config/omf
     else
         echo "Updating oh-my-fish..."
         output=$(fish -c 'omf update')
