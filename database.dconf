@@ -1,3 +1,15 @@
+[org/gnome/desktop/screensaver]
+picture-uri='file:///home/aaron/Pictures/Wallpapers/14%20-%2017.png'
+picture-options='spanned'
+
+[org/gnome/desktop/background]
+picture-uri='file:///home/aaron/Pictures/Wallpapers/14%20-%20120.png'
+show-desktop-icons=true
+color-shading-type='solid'
+primary-color='#000000'
+picture-options='zoom'
+secondary-color='#000000'
+
 [org/gnome/nautilus/icon-view]
 default-zoom-level='small'
 
