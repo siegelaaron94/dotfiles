@@ -15,5 +15,10 @@
             "~/.atom/keymap.cson": "atom/keymap.cson",
             "~/.config/fish/config.fish": "config/fish/config.fish"
         }
+    },
+    {
+        "shell": [
+            ["sudo apt-get -y install build-essential cmake curl fish git python-dev python-pip", "Installing default development packages"]
+        ]
     }
 ]
