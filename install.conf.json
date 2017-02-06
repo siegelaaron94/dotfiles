@@ -8,5 +8,12 @@
     },
     {
         "clean": ["~"]
+    },
+    {
+        "link": {
+            "~/.atom/config.cson": null,
+            "~/.atom/keymap.cson": null,
+            "~/.config/fish/config.fish": null
+        }
     }
 ]
