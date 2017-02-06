@@ -50,6 +50,11 @@ else
     gsettings set org.gnome.shell.extensions.user-theme name "Flat-Plat"
     gsettings set org.gnome.desktop.interface icon-theme "Flat Remix"
 
+    # ["gnome-shell-extension-tool -e dash-to-dock@micxgx.gmail.com", "Enabling gnome shell dash to dock extension"],
+    # ["gnome-shell-extension-tool -e user-themes", "Enabling user themes extension"],
+    # ["gsettings set org.gnome.desktop.interface gtk-theme \"Flat-Plat\";gsettings set org.gnome.desktop.wm.preferences theme \"Flat-Plat\";gsettings set org.gnome.shell.extensions.user-theme name \"Flat-Plat\"", "Setting Flat-Plat as user theme"],
+    # ["gsettings set org.gnome.desktop.interface icon-theme \"Flat Remix\"","Setting Flat Remix as user icon theme"]
+
     sudo chsh -s /usr/bin/fish
 
     if ! $(fish -c 'type omf' > /dev/null); then

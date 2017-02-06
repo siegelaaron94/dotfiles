@@ -26,10 +26,14 @@
             ["sudo apt-get -y install build-essential cmake curl fish git python-dev python-pip", "Installing system development packages"],
             ["sudo pip install pip --upgrade", "Upgrading pip"],
             ["sudo pip install conan autopep8 jedi", "Installing python development packages"],
-            ["sudo Flat-Plat/install.sh", "Installing Flat Remix gnome shell theme"],
-            ["gsettings set org.gnome.desktop.interface gtk-theme \"Flat-Plat\";gsettings set org.gnome.desktop.wm.preferences theme \"Flat-Plat\";gsettings set org.gnome.shell.extensions.user-theme name \"Flat-Plat\"", "Setting Flat-Plat as user theme"],
+
+            ["wget https://raw.githubusercontent.com/NicolasBernaerts/ubuntu-scripts/master/ubuntugnome/gnomeshell-extension-manage", "Downloading gnome shell extension manager"],
+
+            ["sudo Flat-Plat/install.sh", "Installing Flat Plat gnome shell theme"],
             ["sudo rm -rf \"/usr/share/icons/Flat Remix\";sudo cp -r \"Flat-Remix/Flat Remix\" /usr/share/icons", "Installing Flat Remix icon theme"],
-            ["gsettings set org.gnome.desktop.interface icon-theme \"Flat Remix\"","Setting Flat Remix as user icon theme"]
+            ["./gnomeshell-extension-manage --install --extension-id 307", "Installing gnome shell dash to dock extension"],
+
+            ["dconf load / < database.dconf", "Setting up dconf database"],
         ]
     }
 ]
