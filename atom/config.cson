@@ -12,7 +12,7 @@
   core:
     telemetryConsent: "limited"
   editor:
-    fontSize: 16
+    fontSize: 15
     invisibles: {}
     tabLength: 4
   "exception-reporting":
