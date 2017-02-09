@@ -37,7 +37,7 @@ sudo cp -r 'Flat-Remix/Flat Remix' /usr/share/icons
 echo "Installing ycmd..."
 sudo apt-get -y install golang-go mono-complete mono-xbuild nodejs npm rustc cargo
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-./ycmd/build.py --clang-completer --gocode-completer --tern-completer #--racer-completer
+./vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-completer --tern-completer #--racer-completer
 
 echo "Install oh-my-fish..."
 oh-my-fish/bin/install --offline -y

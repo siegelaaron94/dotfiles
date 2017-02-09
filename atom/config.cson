@@ -8,7 +8,8 @@
     build_dir: "$PROJECT_DIR/build"
     cmake_arguments: " -DCMAKE_BUILD_TYPE=Release"
   "clang-format":
-    executable: "clang-format"
+    formatJavascriptOnSave: true
+    formatObjectiveCOnSave: true
     style: "Webkit"
   core:
     telemetryConsent: "limited"
@@ -28,4 +29,4 @@
     showOnStartup: false
   "you-complete-me":
     globalExtraConfig: "~/.ycm_extra_conf.py"
-    ycmdPath: "/home/aaron/ycmd"
+    ycmdPath: "/home/aaron/.vim/bundle/YouCompleteMe/third_party/ycmd"
