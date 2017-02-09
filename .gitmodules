@@ -13,6 +13,6 @@
 [submodule "ycmd"]
 	path = ycmd
 	url = https://github.com/Valloric/ycmd.git
-[submodule "vim/colors/vim-one"]
-	path = vim/colors/vim-one
-	url = https://github.com/rakr/vim-one.git
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
