@@ -19,7 +19,7 @@ sudo pip install pip --upgrade
 sudo pip install conan autopep8 jedi
 
 echo "Installing gui vim-gui..."
-sudo apt-get install vim-gui-common vim-runtime
+sudo apt-get install vim-gui-common vim-runtime vim-gtk
 
 echo "Installing atom..."
 sudo dpkg -i atom.deb

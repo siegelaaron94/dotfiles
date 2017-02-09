@@ -25,6 +25,7 @@
     },
     {
         "shell": [
+			["vim +PluginInstall +qall", "Installing vim packages."],
             ["apm install --packages-file atom-package-list.txt","Installing atom packages"],
             ["dconf load / < database.dconf", "Setting up dconf database"]
         ]
