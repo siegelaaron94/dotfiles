@@ -10,14 +10,18 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'rakr/vim-one'
+Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
 
 set laststatus=2
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts = 1
 
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
 
 syntax enable
 set tabstop=4

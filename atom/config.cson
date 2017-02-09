@@ -16,7 +16,7 @@
   editor:
     atomicSoftTabs: false
     confirmCheckoutHeadRevision: false
-    fontSize: 19
+    fontSize: 17
     invisibles: {}
     tabLength: 4
   "exception-reporting":
