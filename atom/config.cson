@@ -8,11 +8,14 @@
     build_dir: "$PROJECT_DIR/build"
     cmake_arguments: " -DCMAKE_BUILD_TYPE=Release"
   "clang-format":
+    executable: "clang-format"
     style: "Webkit"
   core:
     telemetryConsent: "limited"
   editor:
-    fontSize: 18
+    atomicSoftTabs: false
+    confirmCheckoutHeadRevision: false
+    fontSize: 19
     invisibles: {}
     tabLength: 4
   "exception-reporting":
