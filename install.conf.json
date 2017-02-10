@@ -24,7 +24,16 @@
     },
     {
         "shell": [
-			["vim +PluginInstall +qall", "Installing vim packages."],
+			{ 
+				"command":"vim +PluginInstall +qall", 
+				"stdout" : true,
+				"description":"Installing vim packages."
+			},
+			{
+				"command": "./vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-completer --tern-completer",
+				"stdout": true,
+				"description":"Installing YouCompleteMe..."
+			},
             ["apm install --packages-file atom-package-list.txt","Installing atom packages"],
             ["dconf load / < database.dconf", "Setting up dconf database"]
         ]
