@@ -12,6 +12,7 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'siegelaaron94/vim-one'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'derekwyatt/vim-fswitch'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,11 +33,21 @@ set background=dark
 colorscheme one
 let g:airline_theme='one'
 
-" Set ctrl+s as save
+let mapleader = "\<Space>"
+
+" Save with Ctrl+s
 :nmap <c-s> :w<CR>
 :imap <c-s> <Esc>:w<CR>a
 
+" Copy with Ctrl+c
 vnoremap <C-c> "+y
+
+" Switch Header/Source with <F4>
+map <F4> :FSHere<CR>
+map <leader>r :FSSplitRight<CR>
+map <leader>l :FSSplitLeft<CR>
+map <leader>t :FSSplitAbove<CR>
+map <leader>b :FSSplitRelow<CR>
 
 set mouse+=a
 
