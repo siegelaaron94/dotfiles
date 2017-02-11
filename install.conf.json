@@ -3,7 +3,7 @@
         "defaults": {
             "link": {
                 "relink": true,
-				"force" : true
+                "force" : true
             }
         }
     },
@@ -13,7 +13,7 @@
     {
         "link": {
             "~/.vimrc": "vimrc",
-			"~/.vim": "vim",
+            "~/.vim": "vim",
             "~/.ycm_extra_conf.py": "ycm_extra_conf.py",
             "~/.config/omf/theme": "config/omf/theme",
             "~/.atom/config.cson": "atom/config.cson",
@@ -24,16 +24,16 @@
     },
     {
         "shell": [
-			{ 
-				"command":"vim +PluginInstall +qall", 
-				"stdout" : true,
-				"description":"Installing vim packages."
-			},
-			{
-				"command": "./vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-completer --tern-completer",
-				"stdout": true,
-				"description":"Installing YouCompleteMe..."
-			},
+            {
+                "command":"vim +PluginInstall +qall",
+                "stdout" : true,
+                "description":"Installing vim packages."
+            },
+            {
+                "command": "./vim/bundle/YouCompleteMe/install.py --clang-completer --gocode-completer --tern-completer",
+                "stdout": true,
+                "description":"Installing YouCompleteMe..."
+            },
             ["apm install --packages-file atom-package-list.txt","Installing atom packages"],
             ["dconf load / < database.dconf", "Setting up dconf database"]
         ]
