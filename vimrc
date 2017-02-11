@@ -7,12 +7,15 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tikhomirov/vim-glsl'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'derekwyatt/vim-fswitch'
+Plugin 'Valloric/YouCompleteMe'
+
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'siegelaaron94/vim-one'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'derekwyatt/vim-fswitch'
 
 call vundle#end()
 filetype plugin indent on
@@ -52,7 +55,7 @@ map <leader>b :FSSplitRelow<CR>
 set mouse+=a
 
 " Show syntax highlighting groups for word under cursor
-nmap <C-S-P> :call <SID>SynStack()<CR>
+nmap <C-S-L> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
 	if !exists("*synstack")
 		return
