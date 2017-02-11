@@ -14,6 +14,8 @@
         "link": {
             "~/.vimrc": "vimrc",
             "~/.vim": "vim",
+			"~/.tmux.conf": "tmux.conf",
+			"~/.tmux-themepack" : "tmux-themepack",
             "~/.ycm_extra_conf.py": "ycm_extra_conf.py",
             "~/.config/omf/theme": "config/omf/theme",
             "~/.atom/config.cson": "atom/config.cson",

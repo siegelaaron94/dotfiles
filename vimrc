@@ -8,6 +8,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'matze/vim-move'
 Plugin 'tikhomirov/vim-glsl'
 Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'derekwyatt/vim-fswitch'
@@ -19,6 +20,8 @@ Plugin 'siegelaaron94/vim-one'
 
 call vundle#end()
 filetype plugin indent on
+
+set clipboard=unnamedplus
 
 set laststatus=2
 let g:airline_powerline_fonts = 1
@@ -37,6 +40,8 @@ colorscheme one
 let g:airline_theme='one'
 
 let mapleader = "\<Space>"
+
+let g:move_key_modifier = 'C'
 
 " Save with Ctrl+s
 :nmap <c-s> :w<CR>
