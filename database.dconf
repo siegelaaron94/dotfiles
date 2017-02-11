@@ -1,6 +1,6 @@
 [org/gnome/terminal/legacy/profiles:]
-list=['6beaab14-9fe5-48a8-90ad-9d740b0a76b6', 'c34f34c9-7b19-40c1-bc7a-635e6db55501']
-default='c34f34c9-7b19-40c1-bc7a-635e6db55501'
+list=['6beaab14-9fe5-48a8-90ad-9d740b0a76b6', 'ed9e1bdf-e6bd-497e-8bca-fee1f8006891']
+default='ed9e1bdf-e6bd-497e-8bca-fee1f8006891'
 
 [org/gnome/terminal/legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
 background-color='rgb(40,44,52)'
@@ -9,6 +9,19 @@ use-theme-transparency=false
 foreground-color='rgb(171,178,191)'
 use-system-font=false
 font='Ubuntu Mono derivative Powerline 15'
+
+[org/gnome/terminal/legacy/profiles:/:ed9e1bdf-e6bd-497e-8bca-fee1f8006891]
+foreground-color='#abb2bf'
+visible-name='One Dark'
+palette=['#000000', '#E06C75', '#98c379', '#d19a66', '#61aeee', '#c678dd', '#56b6c2', '#abb2bf', '#5c6370', '#e06c75', '#98c379', '#d19a66', '#62afee', '#c678dd', '#56b6c2', '#ffffff']
+use-system-font=false
+use-theme-colors=false
+font='Ubuntu Mono derivative Powerline 15'
+use-theme-transparency=false
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#ABB2BF'
+background-color='#282c34'
 
 [org/gnome/terminal/legacy/profiles:/:6beaab14-9fe5-48a8-90ad-9d740b0a76b6]
 foreground-color='#5C5C63637070'
@@ -22,19 +35,6 @@ use-theme-background=false
 bold-color-same-as-fg=true
 bold-color='#ABABB2B2BFBF'
 background-color='#1E1E21212727'
-
-[org/gnome/terminal/legacy/profiles:/:c34f34c9-7b19-40c1-bc7a-635e6db55501]
-foreground-color='#abb2bf'
-visible-name='One Dark'
-palette=['#000000', '#E06C75', '#98c379', '#d19a66', '#61aeee', '#c678dd', '#56b6c2', '#abb2bf', '#5c6370', '#e06c75', '#98c379', '#d19a66', '#62afee', '#c678dd', '#56b6c2', '#ffffff']
-use-system-font=false
-use-theme-colors=false
-font='Ubuntu Mono derivative Powerline 15'
-use-theme-transparency=false
-use-theme-background=false
-bold-color-same-as-fg=true
-bold-color='#ABB2BF'
-background-color='#282c34'
 
 [org/gnome/terminal/legacy]
 schema-version=uint32 3
@@ -171,7 +171,7 @@ search-filter-time-type='last_modified'
 
 [org/gnome/nautilus/window-state]
 sidebar-width=356
-geometry='1253x648+321+122'
+geometry='1651x841+0+32'
 maximized=false
 
 [org/gnome/nautilus/icon-view]
@@ -347,7 +347,7 @@ position=(0, 32)
 locations=['file:///home/aaron/Music']
 
 [org/gnome/software]
-check-timestamp=int64 1486305667
+check-timestamp=int64 1486773451
 
 [org/gnome/Totem]
 subtitle-encoding='UTF-8'
@@ -383,8 +383,8 @@ sort-order='descending'
 location-mode='path-bar'
 
 [org/gtk/settings/color-chooser]
-selected-color=(true, 0.0, 0.35000000000000053, 1.0, 1.0)
-custom-colors=[(0.0, 0.35000000000000053, 1.0, 1.0), (0.36078431372549019, 0.38823529411764707, 0.4392156862745098, 1.0), (0.15686274509803921, 0.17254901960784313, 0.20392156862745098, 1.0), (0.0, 0.16862745098039217, 0.21176470588235294, 1.0), (0.6705882352941176, 0.69803921568627447, 0.74901960784313726, 1.0), (0.15686274509803919, 0.17254901960784316, 0.20392156862745098, 1.0), (1.0, 1.0, 0.8666666666666667, 1.0)]
+selected-color=(true, 0.13089489489489492, 0.90666666666666673, 0.030222222222222216, 1.0)
+custom-colors=[(0.13089489489489492, 0.90666666666666673, 0.030222222222222216, 1.0), (0.38431372549019605, 0.68627450980392146, 0.93333333333333335, 1.0), (0.011764705882352941, 1.0, 0.19607843137254902, 1.0), (0.010000000000000009, 1.0, 0.19729729729729717, 1.0), (1.0, 0.49411764705882355, 0.050980392156862744, 1.0), (0.3843137254901961, 0.68627450980392157, 0.93333333333333335, 1.0), (1.0, 0.49290540540540539, 0.050000000000000044, 1.0), (0.38039215686274508, 0.68235294117647061, 0.93333333333333335, 1.0)]
 
 [ca/desrt/dconf-editor]
 saved-view='/org/gnome/desktop/applications/terminal/'
