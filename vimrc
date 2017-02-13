@@ -68,3 +68,5 @@ function! <SID>SynStack()
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+let g:xml_syntax_folding=1
+au FileType xml setlocal foldmethod=syntax
