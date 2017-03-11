@@ -1,2 +1,4 @@
 'atom-workspace atom-text-editor':
   'f4': 'switch-header-source:switch'
+'atom-text-editor':
+  'f2': 'you-complete-me:go-to'

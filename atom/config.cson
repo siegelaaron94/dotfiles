@@ -6,8 +6,11 @@
     panelVisibility: "Keep Visible"
   "build-cmake":
     build_dir: "$PROJECT_DIR/build"
-    cmake_arguments: " -DCMAKE_BUILD_TYPE=Release"
+    cmake_arguments: "-DCMAKE_BUILD_TYPE=Debug"
   "clang-format":
+    formatCOnSave: true
+    formatCPlusPlusOnSave: true
+    formatJavaOnSave: true
     formatJavascriptOnSave: true
     formatObjectiveCOnSave: true
     style: "Webkit"
@@ -16,13 +19,14 @@
   editor:
     atomicSoftTabs: false
     confirmCheckoutHeadRevision: false
-    fontSize: 17
+    fontSize: 16
     invisibles: {}
     tabLength: 4
   "exception-reporting":
     userId: "123413d9-bcd9-293b-4a54-71da920eeae4"
   linter:
-    errorPanelHeight: 103
+    errorPanelHeight: 242
+    showErrorPanel: false
   "python-autopep8":
     formatOnSave: true
   welcome:
