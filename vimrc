@@ -7,22 +7,26 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
+
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'matze/vim-move'
-Plugin 'tikhomirov/vim-glsl'
-Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'tpope/vim-fugitive'
 
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'siegelaaron94/vim-one'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'siegelaaron94/vim-one'
-Plugin 'scrooloose/nerdtree'
-Plugin 'benmills/vimux'
-Plugin 'sigidagi/vim-cmake-project'
 Plugin 'airblade/vim-gitgutter'
+
+Plugin 'derekwyatt/vim-fswitch'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'tikhomirov/vim-glsl'
 
 call vundle#end()
 filetype plugin indent on
@@ -53,12 +57,17 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
 
+let g:NERDDefaultAlign="start"
+
+
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
   \ }
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+
+let g:nerdtree_tabs_open_on_console_startup = 2
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
@@ -76,16 +85,14 @@ let g:clang_format#style_options = {
             \ "Standard" : "C++11"}            
 
 
-" Match <> in cpp.
-autocmd FileType cpp set mps+=<:>
-
-
-let g:cpp_class_scope_highlight = 1
-let g:cpp_experimental_simple_template_highlight = 1
-let g:cpp_concepts_highlight = 1
-
 
 let mapleader = "\<Space>"
+
+
+let g:UltiSnipsExpandTrigger="<c-space>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
 
 " Use control to move text selection down/up
 " with j/k
@@ -128,7 +135,6 @@ set mouse+=a
 let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 
-map <Leader>g <Plug>CMakeBuild
-map <Leader>b <Plug>CMakeCompile
-map <Leader>cc <Plug>CMakeClean
-map <Leader>o <Plug>CMakeOutput
+
+map <F9> :w <CR> :!clear && gcc % <CR> 
+map <C-F9> :w <CR> :!clear && gcc % -o %< && ./%< <CR>
