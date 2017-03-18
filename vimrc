@@ -8,28 +8,42 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+Plugin 'tpope/vim-sensible'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'matze/vim-move'
+Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+
 
 Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'siegelaaron94/vim-one'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
 
+
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'alepez/vim-gtest'
+
 
 Plugin 'tikhomirov/vim-glsl'
 
+
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
+
+
 call vundle#end()
 filetype plugin indent on
+
 
 set clipboard=unnamedplus
 
@@ -41,11 +55,9 @@ set expandtab
 set number
 set nowrap
 
-
-syntax enable
+set hlsearch
 set termguicolors
 set background=dark
-set laststatus=2
 colorscheme one
 let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
@@ -78,13 +90,16 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
-autocmd FileType c,cpp,objc ClangFormatAutoEnable
+let g:local_vimrc = ['.config', '_vimrc_local.vim', '.vimrc_local.vim']
+
+
+autocmd FileType c,cpp,objc,python ClangFormatAutoEnable
 let g:clang_format#code_style="Webkit"
 let g:clang_format#style_options = {
             \ "ColumnLimit": 0,
             \ "Standard" : "C++11"}            
-
-
+let g:gtest#highlight_failing_tests = 1
+let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 
 let mapleader = "\<Space>"
 
@@ -96,11 +111,12 @@ let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " Use control to move text selection down/up
 " with j/k
-let g:move_key_modifier = 'C'
+let g:move_key_modifier = 'S'
 
 
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
+
 
 map <C-n> :NERDTreeToggle<CR>
 
@@ -112,14 +128,17 @@ map <C-n> :NERDTreeToggle<CR>
 vnoremap <C-c> "+y
 
 
-map <F2> :YcmCompleter GoTo<CR>
 
-" Switch Header/Source with <F4>
-map <F4> :FSHere<CR>
-map <leader>r :FSSplitRight<CR>
-map <leader>l :FSSplitLeft<CR>
-map <leader>t :FSSplitAbove<CR>
-map <leader>b :FSSplitRelow<CR>
+"C/C++ Switch Header/Source
+autocmd FileType c,cpp map <buffer> <F4> :FSHere<CR>
+autocmd FileType c,cpp map <buffer> <leader>sl :FSSplitRight<CR>
+autocmd FileType c,cpp map <buffer> <leader>sh :FSSplitLeft<CR>
+autocmd FileType c,cpp map <buffer> <leader>sk :FSSplitAbove<CR>
+autocmd FileType c,cpp map <buffer> <leader>sj :FSSplitBelow<CR>
+
+" C/C++ goto defintion
+autocmd FileType c,cpp map <buffer> <F2> :YcmCompleter GoTo<CR>
+
 
 set mouse+=a
 
@@ -136,5 +155,8 @@ let g:xml_syntax_folding=1
 au FileType xml setlocal foldmethod=syntax
 
 
-map <F9> :w <CR> :!clear && gcc % <CR> 
-map <C-F9> :w <CR> :!clear && gcc % -o %< && ./%< <CR>
+noremap <leader>b :Make <CR> 
+
+
+autocmd FileType c,cpp map <buffer> <F9> :w <CR> :!clear && gcc % <CR> 
+autocmd FileType c,cpp map <buffer> <C-F9> :w <CR> :!clear && gcc % -o %< && ./%< <CR>
