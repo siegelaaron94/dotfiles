@@ -8,49 +8,62 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'tpope/vim-sensible'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'matze/vim-move'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-dispatch'
-
-Plugin 'tomtom/tcomment_vim'
-
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'jistr/vim-nerdtree-tabs'
+" UI plugins
 Plugin 'siegelaaron94/vim-one'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/TagHighlight'
 
+" Command Plugins
+Plugin 'tomtom/tcomment_vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-surround'
+
+
+" Movement Plugins 
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'matze/vim-move'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'majutsushi/tagbar'
+
+
+" Project Plugins
+Plugin 'LucHermitte/lh-vim-lib'
+Plugin 'LucHermitte/local_vimrc'
+
+
+" NERDTree Plugins
+Plugin 'scrooloose/nerdtree'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'jistr/vim-nerdtree-tabs'
+
+
+" C/C++ Plugins
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'alepez/vim-gtest'
-Plugin 'jeaye/color_coded'
 
+" GLSL Plugins
 Plugin 'tikhomirov/vim-glsl'
-
-
-Plugin 'LucHermitte/lh-vim-lib'
-Plugin 'LucHermitte/local_vimrc'
 
 
 call vundle#end()
 filetype plugin indent on
 
 
-set clipboard=unnamedplus
-
-
+set mouse+=a
 set tabstop=4
 set shiftwidth=4 
 set softtabstop=4 
 set expandtab
 set number
 set nowrap
+set clipboard=unnamedplus
 
 set hlsearch
 set termguicolors
@@ -66,9 +79,6 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
 
-let g:NERDDefaultAlign="start"
- 
-
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
   \ 'file': '\.exe$\|\.so$\|\.dat$'
@@ -76,21 +86,23 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
-let g:nerdtree_tabs_open_on_console_startup = 2
+let g:local_vimrc = ['.config', '_vimrc_local.vim', '.vimrc_local.vim']
 
+
+" Open NERDTree when vim is started with no files
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+" Open NERDTree when vim is started with a directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" Close NERDTree when last buffer is closed.
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
-let g:local_vimrc = ['.config', '_vimrc_local.vim', '.vimrc_local.vim']
 
- 
-autocmd FileType c,cpp,objc,python ClangFormatAutoEnable
+autocmd FileType c,cpp,objc,python,glsl ClangFormatAutoEnable
 let g:clang_format#command="/home/aaron/.atom/packages/clang-format/node_modules/clang-format/bin/linux_x64/clang-format"
 let g:clang_format#code_style="Webkit"
 let g:clang_format#style_options = {
@@ -108,6 +120,7 @@ let g:move_key_modifier = 'S'
 
 
 noremap <C-n> :NERDTreeToggle<CR>
+autocmd VimEnter * NERDTreeClose
 
 " Save with Ctrl+s
 nnoremap <c-s> :w<CR>
@@ -124,23 +137,23 @@ autocmd FileType c,cpp nnoremap <buffer> <leader>sj :FSSplitBelow<CR>
 autocmd FileType c,cpp nnoremap <buffer> <F2> :YcmCompleter GoTo<CR>
 
 
-set mouse+=a
 
-" " Show syntax highlighting groups for word under cursor
-" " nmap <C-S-L> :call <SID>SynStack()<CR>
-" " function! <SID>SynStack()
-" " 	if !exists("*synstack")
-" " 		return
-" " 	endif
-" " 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
-" " endfunc
+" Show syntax highlighting groups for word under cursor
+nnoremap <F8> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " let g:xml_syntax_folding=1
 " au FileType xml setlocal foldmethod=syntax
- 
+
 
 nnoremap <leader>b :Make <CR> 
 
+noremap <F12> :TagbarToggle <CR>
 
 autocmd FileType c,cpp nnoremap <buffer> <F9> :w <CR> :!clear && gcc % <CR> 
 autocmd FileType c,cpp nnoremap <buffer> <C-F9> :w <CR> :!clear && gcc % -o %< && ./%< <CR>
