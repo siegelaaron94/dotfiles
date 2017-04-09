@@ -1,6 +1,10 @@
 set shell=bash
+let g:indentLine_setColors = 0
+let g:indentLine_char = '│'
+"let g:indentLine_char = '┊'
 
 set nocompatible
+
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -8,12 +12,15 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
+
 " UI plugins
 Plugin 'siegelaaron94/vim-one'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'Yggdroot/indentLine'
 Plugin 'vim-scripts/TagHighlight'
+
 
 " Command Plugins
 Plugin 'tomtom/tcomment_vim'
@@ -48,6 +55,7 @@ Plugin 'rhysd/vim-clang-format'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'alepez/vim-gtest'
 
+
 " GLSL Plugins
 Plugin 'tikhomirov/vim-glsl'
 
@@ -56,6 +64,9 @@ call vundle#end()
 filetype plugin indent on
 
 
+set nobackup
+set noswapfile
+set hidden
 set mouse+=a
 set tabstop=4
 set shiftwidth=4 
@@ -101,18 +112,21 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 
-
-autocmd FileType c,cpp,objc,python,glsl ClangFormatAutoEnable
+autocmd FileType c,cpp,objc,javascript,java,proto,glsl ClangFormatAutoEnable
 let g:clang_format#command="/home/aaron/.atom/packages/clang-format/node_modules/clang-format/bin/linux_x64/clang-format"
 let g:clang_format#code_style="Webkit"
 let g:clang_format#style_options = {
             \ "ColumnLimit": 0,
             \ "Standard" : "C++11"}            
+
+
 let g:gtest#highlight_failing_tests = 1
+
+
 let g:ycm_global_ycm_extra_conf = "~/.ycm_extra_conf.py"
 
-let mapleader = "\<Space>"
 
+let mapleader = "\<Space>"
 
 " Use control to move text selection down/up
 " with j/k
@@ -137,7 +151,6 @@ autocmd FileType c,cpp nnoremap <buffer> <leader>sj :FSSplitBelow<CR>
 autocmd FileType c,cpp nnoremap <buffer> <F2> :YcmCompleter GoTo<CR>
 
 
-
 " Show syntax highlighting groups for word under cursor
 nnoremap <F8> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -150,10 +163,43 @@ endfunc
 " let g:xml_syntax_folding=1
 " au FileType xml setlocal foldmethod=syntax
 
+au FileType c,cpp,glsl,xml,vim,html,xhtml,perl,java,javascript setlocal foldmethod=syntax
+set foldlevelstart=99
+set foldlevel=99
 
-nnoremap <leader>b :Make <CR> 
+
+nnoremap <F5> :Make <CR> 
+
 
 noremap <F12> :TagbarToggle <CR>
 
-autocmd FileType c,cpp nnoremap <buffer> <F9> :w <CR> :!clear && gcc % <CR> 
-autocmd FileType c,cpp nnoremap <buffer> <C-F9> :w <CR> :!clear && gcc % -o %< && ./%< <CR>
+
+let cOperatorList  = '[-&|+<>=*/!~]'    " A list of symbols that we don't want to immediately precede the operator
+let cOperatorList .= '\@<!'             " Negative look-behind (check that the preceding symbols aren't there)
+let cOperatorList .= '\%('              " Beginning of a list of possible operators
+let cOperatorList .=     '\('           " First option, the following symbols...
+let cOperatorList .=        '[-&|+<>=]'
+let cOperatorList .=     '\)'
+let cOperatorList .=     '\1\?'         " Followed by (optionally) the exact same symbol, so -, --, =, ==, &, && etc
+let cOperatorList .= '\|'               " Next option:
+let cOperatorList .=     '->'           " Pointer dereference operator
+let cOperatorList .= '\|'               " Next option:
+let cOperatorList .=     '[-+*/%&^|!]=' " One of the listed symbols followed by an =, e.g. +=, -=, &= etc
+let cOperatorList .= '\|'               " Next option:
+let cOperatorList .=     '[*?,!~%]'     " Some simple single character operators
+let cOperatorList .= '\|'               " Next option:
+let cOperatorList .=     '\('           " One of the shift characters:
+let cOperatorList .=         '[<>]'     
+let cOperatorList .=     '\)'
+let cOperatorList .=     '\2'           " Followed by another identical character, so << or >>...
+let cOperatorList .=     '='            " Followed by =, so <<= or >>=.
+let cOperatorList .= '\)'               " End of the long list of options
+let cOperatorList .= '[-&|+<>=*/!~]'    " The list of symbols that we don't want to follow
+let cOperatorList .= '\@!'              " Negative look-ahead (this and the \@<! prevent === etc from matching)
+  
+au FileType c,cpp exe "syn match cOperator display '" . cOperatorList . "'"
+au FileType c,cpp syn match cOperator display ';'
+au FileType c,cpp hi link CTagsClass Structure 
+au FileType c,cpp hi link CTagsStructure Structure 
+au FileType c,cpp hi link CTagsNamespace Structure 
+au FileType c,cpp hi link CTagsType Structure 
