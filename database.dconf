@@ -218,7 +218,7 @@ palette=['#000000', '#E06C75', '#98c379', '#d19a66', '#61aeee', '#c678dd', '#56b
 cursor-shape='block'
 use-system-font=false
 use-theme-colors=false
-font='UbuntuMono NF 15'
+font='UbuntuMonoDerivativePowerline Nerd Font 15'
 use-theme-transparency=false
 use-theme-background=false
 bold-color-same-as-fg=true
@@ -239,6 +239,19 @@ use-theme-background=false
 bold-color-same-as-fg=true
 bold-color='#ABABB2B2BFBF'
 background-color='#1E1E21212727'
+
+[org/gnome/terminal/legacy/profiles:/:ed9e1bdf-e6bd-497e-8bca-fee1f8006891]
+foreground-color='#abb2bf'
+visible-name='One Dark'
+palette=['#000000', '#E06C75', '#98c379', '#d19a66', '#61aeee', '#c678dd', '#56b6c2', '#abb2bf', '#5c6370', '#e06c75', '#98c379', '#d19a66', '#62afee', '#c678dd', '#56b6c2', '#ffffff']
+use-system-font=false
+use-theme-colors=false
+font='Ubuntu Mono derivative Powerline 15'
+use-theme-transparency=false
+use-theme-background=false
+bold-color-same-as-fg=true
+bold-color='#ABB2BF'
+background-color='#282c34'
 
 [org/gnome/terminal/legacy]
 schema-version=uint32 3
@@ -417,7 +430,7 @@ search-filter-time-type='last_modified'
 
 [org/gnome/nautilus/window-state]
 sidebar-width=236
-geometry='960x1036+2880+0'
+geometry='960x1008+45+29'
 maximized=false
 
 [org/gnome/nautilus/compression]
