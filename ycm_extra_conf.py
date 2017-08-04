@@ -52,6 +52,16 @@ def GetCompilationInfoForFile(database, filename):
                     compilation_info = database.GetCompilationInfoForFile(replacement_file)
                     if compilation_info.compiler_flags_:
                         return compilation_info
+        while len(basenames) > 0:
+            basenames = [os.path.dirname(p) for p in basenames if len(os.path.basename(p)) > 0]
+            for basepath in basenames:
+                for f in os.listdir(basepath):
+                    f = os.path.join(basepath, f)
+                    ext = os.path.splitext(f)[1]
+                    if os.path.isfile(f) and f != filename and ext in SOURCE_EXTENSIONS:
+                        cmd = GetCompilationInfoForFile(database, f)
+                        if cmd != None:
+                            return cmd
         return None
     return database.GetCompilationInfoForFile(filename)
 
