@@ -27,6 +27,8 @@ ln -sf $dotfile_path/ycm_extra_conf.py ~/ycm_extra_conf.py
 rm -f ~/.config/omf/theme
 ln -sf $dotfile_path/config/omf/theme ~/.config/omf/theme 
 
+dconf load / < $dotfile_path/database.dconf
+
 
 #error: target not found: substance-designer
 #error: target not found: substance-painter

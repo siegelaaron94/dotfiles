@@ -295,7 +295,7 @@ apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop',
 name='X-GNOME-Sundry.directory'
 
 [org/gnome/desktop/screensaver]
-picture-uri='file:///home/aaron/Pictures/14%20-%20120.png'
+picture-uri='file:///home/aaron/Pictures/Wallpapers/14%20-%20120.png'
 color-shading-type='solid'
 primary-color='#000000000000'
 picture-options='zoom'
