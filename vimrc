@@ -13,7 +13,7 @@ set expandtab
 set number
 set nowrap
 set clipboard=unnamedplus
-"set colorcolumn=80
+"""set colorcolumn=80
 
 set hlsearch
 set incsearch
@@ -26,7 +26,6 @@ set updatetime=250
 
 "Auto reload .vimrc
 autocmd bufwritepost .vimrc source %
-
 " }}}
 
 " Install Plugins {{{
@@ -39,31 +38,32 @@ Plugin 'VundleVim/Vundle.vim'
 " }}}
 
 " UI plugins {{{
+Plugin 'endel/vim-github-colorscheme'
 Plugin 'siegelaaron94/vim-one'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'vim-scripts/TagHighlight'
-Plugin 'ryanoasis/vim-devicons'
+""""""" Plugin 'vim-scripts/TagHighlight'
+" Plugin 'ryanoasis/vim-devicons'
 Plugin 'wincent/terminus'
 " }}}
 
 " Basic Plugins {{{
 Plugin 'tomtom/tcomment_vim'
 Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-repeat'
+" Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-surround'
+" Plugin 'tpope/vim-surround'
 Plugin 'jiangmiao/auto-pairs'
-Plugin 'terryma/vim-multiple-cursors'
+" Plugin 'terryma/vim-multiple-cursors'
 " }}}
 
 " Navigation Plugins {{{
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'matze/vim-move'
+" Plugin 'matze/vim-move'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'majutsushi/tagbar'
+" Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'jistr/vim-nerdtree-tabs'
@@ -77,9 +77,9 @@ Plugin 'LucHermitte/local_vimrc'
 " C/C++ Plugins {{{
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'rhysd/vim-clang-format'
-"Plugin 'Chiel92/vim-autoformat'
+" "Plugin 'Chiel92/vim-autoformat'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'alepez/vim-gtest'
+" Plugin 'alepez/vim-gtest'
 " }}}
 
 " GLSL Plugins {{{
@@ -87,25 +87,33 @@ Plugin 'tikhomirov/vim-glsl'
 " }}}
 
 " SML {{{
-Plugin 'jez/vim-better-sml'
+" Plugin 'jez/vim-better-sml'
+" }}}
+
+" Jinja2 {{{
+Plugin 'Glench/Vim-Jinja2-Syntax'
+" }}}
+
+" Antlr {{{
+" Plugin 'dylon/vim-antlr'
 " }}}
 
 " Vundle cleanup {{{
 call vundle#end()
 filetype plugin indent on
 " }}}
-
 " }}}
 
 " Theme setup {{{
 set termguicolors
-set background=dark
 colorscheme one
+set background=dark
 let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
 " }}}
 
 " Plugin setup {{{
+
 " Git Gutter setup {{{
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
@@ -145,12 +153,26 @@ let g:clang_format#style_options = { "ColumnLimit": 0, "Standard":"C++11" }
 " }}}
 
 " Google Test setup {{{
-let g:gtest#highlight_failing_tests = 1
-" }}}
+" let g:gtest#highlight_failing_tests = 1
+" }}} 
 
 " YouCompleteMe setup {{{
+let g:ycm_server_log_level = 'debug'
+let g:ycm_server_keep_logfiles = 1
+let g:ycm_server_use_vim_stdout = 0
 let g:ycm_global_ycm_extra_conf ="~/.ycm_extra_conf.py"
+let g:ycm_path_to_python_interpreter = '/usr/bin/python2'
 " }}}
+
+" GLSL setup {{{
+autocmd! BufNewFile,BufRead *.vert,*.tesc,*.tese,*.geom,*.frag,*.comp,*.glsl set filetype=glsl
+" }}}
+
+" Antlr setup {{{
+" au BufRead,BufNewFile *.g set filetype=antlr3
+" au BufRead,BufNewFile *.g4 set filetype=antlr4
+" }}}
+
 " }}}
 
 " Util Functions {{{
@@ -188,10 +210,10 @@ nnoremap <c-s> :w<CR>
 inoremap <c-s> <Esc>:w<CR>
 nnoremap <F5> :Make <CR>
 noremap <S-n> :NERDTreeToggle<CR>
-noremap <F12> :TagbarToggle <CR>
+" noremap <F12> :TagbarToggle <CR>
 
 " Switch between last two buffers
-nnoremap <leader><leader> <C-^>
+" nnoremap <leader><leader> <C-^>
 
 nnoremap <F8> :call <SID>SynStack()<CR>
 " }}}
