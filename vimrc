@@ -110,6 +110,9 @@ Plugin 'Glench/Vim-Jinja2-Syntax'
 " Plugin 'dylon/vim-antlr'
 " }}}
 
+" Nginx {{{
+Plugin 'chr4/nginx.vim'
+" }}}
 " Vundle Cleanup {{{
 call vundle#end()
 filetype plugin indent on
