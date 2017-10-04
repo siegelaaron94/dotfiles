@@ -78,6 +78,7 @@ Plugin 'LucHermitte/local_vimrc'
 
 " HTML5 Plugins {{{
 Plugin 'othree/html5.vim'
+Plugin 'mattn/emmet-vim'
 " }}}
 
 " Python Plugins {{{
