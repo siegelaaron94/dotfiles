@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 pushd `dirname $0` > /dev/null
 DOTFILE_PATH=`pwd -P`
 popd > /dev/null
