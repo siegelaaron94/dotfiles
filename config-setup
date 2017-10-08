@@ -9,8 +9,13 @@ ln -sf $DOTFILE_PATH/vimrc ~/.vimrc
 rm -f ~/.vim
 ln -sf $DOTFILE_PATH/vim  ~/.vim 
 
+mkdir -p ~/.config/fish
 rm  -f ~/.config/fish/config.fish 
 ln -sf $DOTFILE_PATH/config/fish/config.fish ~/.config/fish/config.fish
+
+mkdir -p ~/.config/fish/functions
+rm -f ~/.config/fish/functions/class.fish 
+ln -sf $DOTFILE_PATH/config/fish/functions/class.fish ~/.config/fish/functions/class.fish
 
 rm -f ~/Pictures/Wallpapers
 ln -sf $DOTFILE_PATH/Wallpapers ~/Pictures
