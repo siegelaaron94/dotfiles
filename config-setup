@@ -17,6 +17,10 @@ mkdir -p ~/.config/fish/functions
 rm -f ~/.config/fish/functions/class.fish 
 ln -sf $DOTFILE_PATH/config/fish/functions/class.fish ~/.config/fish/functions/class.fish
 
+mkdir -p ~/.config/fish/functions
+rm -f ~/.config/fish/functions/manage.fish
+ln -sf $DOTFILE_PATH/config/fish/functions/manage.fish ~/.config/fish/functions/manage.fish
+
 rm -f ~/Pictures/Wallpapers
 ln -sf $DOTFILE_PATH/Wallpapers ~/Pictures
 
