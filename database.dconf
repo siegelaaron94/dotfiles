@@ -60,6 +60,10 @@ binding='<Primary><Alt>t'
 command='gnome-terminal'
 name='Terminal'
 
+[org/gnome/settings-daemon/plugins/xsettings]
+antialiasing='grayscale'
+hinting='slight'
+
 [org/gnome/settings-daemon/peripherals/keyboard]
 numlock-state='on'
 
@@ -218,7 +222,7 @@ palette=['#000000', '#E06C75', '#98c379', '#d19a66', '#61aeee', '#c678dd', '#56b
 cursor-shape='block'
 use-system-font=false
 use-theme-colors=false
-font='UbuntuMonoDerivativePowerline Nerd Font 15'
+font='UbuntuMono Nerd Font Mono 15'
 use-theme-transparency=false
 use-theme-background=false
 bold-color-same-as-fg=true
@@ -262,16 +266,19 @@ icon-theme='Paper'
 clock-format='12h'
 gtk-im-module='gtk-im-context-simple'
 cursor-theme='Paper'
-gtk-theme='Flat-Plat-dark-compact'
+gtk-theme='Materia-dark-compact'
 
 [org/gnome/desktop/notifications]
 application-children=['org-gnome-software', 'org-gnome-nautilus', 'org-gnome-boxes', 'org-gnome-chromegnomeshell']
 
-[org/gnome/desktop/notifications/application/org-gnome-software]
-application-id='org.gnome.Software.desktop'
+[org/gnome/desktop/notifications/application/gnome-tweak-tool]
+application-id='gnome-tweak-tool.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-chromegnomeshell]
 application-id='org.gnome.ChromeGnomeShell.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-software]
+application-id='org.gnome.Software.desktop'
 
 [org/gnome/desktop/notifications/application/org-gnome-boxes]
 application-id='org.gnome.Boxes.desktop'
@@ -295,10 +302,10 @@ apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop',
 name='X-GNOME-Sundry.directory'
 
 [org/gnome/desktop/screensaver]
-picture-uri='file:///home/aaron/Pictures/Wallpapers/14%20-%20120.png'
+picture-uri='file:///home/aaron/Pictures/Wallpapers/materialdesignwallpaper.jpg'
 color-shading-type='solid'
 primary-color='#000000000000'
-picture-options='zoom'
+picture-options='spanned'
 secondary-color='#000000000000'
 
 [org/gnome/desktop/search-providers]
@@ -318,11 +325,11 @@ theme='Flat-Plat'
 automatic-timezone=true
 
 [org/gnome/desktop/background]
-picture-uri='file:///home/aaron/Pictures/Wallpapers/14%20-%20120.png'
+picture-uri='file:///home/aaron/Pictures/Wallpapers/materialdesignwallpaper.jpg'
 show-desktop-icons=true
 color-shading-type='solid'
 primary-color='#000000'
-picture-options='zoom'
+picture-options='centered'
 secondary-color='#000000'
 
 [org/gnome/desktop/input-sources]
@@ -430,7 +437,7 @@ search-filter-time-type='last_modified'
 
 [org/gnome/nautilus/window-state]
 sidebar-width=236
-geometry='960x1008+45+29'
+geometry='1209x665+401+209'
 maximized=false
 
 [org/gnome/nautilus/compression]
@@ -441,6 +448,7 @@ default-zoom-level='small'
 
 [org/gnome/nautilus/desktop]
 home-icon-visible=true
+network-icon-visible=false
 volumes-visible=true
 trash-icon-visible=true
 
@@ -491,7 +499,7 @@ cpu-show-text=false
 memory-show-text=true
 
 [org/gnome/shell/extensions/user-theme]
-name='Flat-Plat-dark-compact'
+name='Materia-dark-compact'
 
 [org/gnome/shell/extensions/EasyScreenCast]
 delay-time=0
@@ -647,7 +655,7 @@ source-name='Default'
 database='all'
 
 [org/gnome/evince/default]
-window-ratio=(3.1372549019607843, 1.3282828282828283)
+window-ratio=(2.4562499999999998, 1.268888888888889)
 
 [org/gnome/deja-dup]
 backend='file'
@@ -763,9 +771,9 @@ window-maximized=false
 sort-column='name'
 clock-format='12h'
 sidebar-width=218
-window-position=(2425, 177)
+window-position=(664, 122)
 show-size-column=true
-show-hidden=true
+show-hidden=false
 window-size=(910, 682)
 sort-directories-first=false
 date-format='regular'
