@@ -30,3 +30,8 @@ ln -sf $DOTFILE_PATH/ycm_extra_conf.py ~/.ycm_extra_conf.py
 rm -f ~/.config/omf/theme
 ln -sf $DOTFILE_PATH/config/omf/theme ~/.config/omf/theme 
 
+rm -rf ~/.tmux.conf
+ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
+
+rm -rf ~/.tmux-themepack
+ln -sf $DOTFILE_PATH/tmux-themepack ~/.tmux-themepack
