@@ -142,7 +142,7 @@ let g:formatters_jsx = [
             \ 'xo_javascript'
             \ ]
 augroup AutoformatGroup
-    autocmd FileType c,cpp,python,java,javascript,javascript.jsx
+    autocmd FileType c,cpp,python,java,javascript,javascript.jsx,html,css
         \ autocmd! AutoformatGroup BufWritePre <buffer> :Autoformat
 augroup END
 " autocmd BufWritePre * if count(['c','cpp','python','java','javascript','javascript.jsx'],&filetype)
