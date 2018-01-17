@@ -13,6 +13,8 @@ set number
 set nowrap
 set clipboard=unnamedplus
 
+set visualbell
+
 " set hlsearch
 " set incsearch
 " set ignorecase
