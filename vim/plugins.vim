@@ -44,6 +44,6 @@ Plug 'pangloss/vim-javascript'
 " Plug 'othree/html5.vim'
 " Plug 'tikhomirov/vim-glsl'
 
-" Plug 'derekwyatt/vim-fswitch'
+Plug 'derekwyatt/vim-fswitch'
 " Plug 'mattn/emmet-vim'
 call plug#end()
