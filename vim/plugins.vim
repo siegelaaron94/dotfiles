@@ -30,8 +30,10 @@ Plug 'scrooloose/nerdtree'
 " Plug 'vim-scripts/TagHighlight'
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'Valloric/YouCompleteMe'
-Plug 'artur-shaik/vim-javacomplete2'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
 
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'

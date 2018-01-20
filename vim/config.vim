@@ -126,7 +126,6 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " }}}
 
 " Autoformat {{{
-" let g:autoformat_verbosemode=1
 let g:formatters_javascript_jsx = [
             \ 'eslint_local',
             \ 'jsbeautify_javascript',
@@ -145,21 +144,38 @@ augroup AutoformatGroup
     autocmd FileType c,cpp,python,java,javascript,javascript.jsx,html,css
         \ autocmd! AutoformatGroup BufWritePre <buffer> :Autoformat
 augroup END
-" autocmd BufWritePre * if count(['c','cpp','python','java','javascript','javascript.jsx'],&filetype)
-"     \ | :Autoformat
-"     \ | endif
 " }}}
 
-" YouCompleteMe {{{
-" let g:ycm_server_log_level = 'debug'
-" let g:ycm_server_keep_logfiles = 1
-let g:ycm_server_use_vim_stdout = 0
-let g:ycm_global_ycm_extra_conf ="~/.ycm_extra_conf.py"
-let g:ycm_path_to_python_interpreter = '/usr/bin/python'
-" }}}
+" Language Server Protocal {{{
+let g:lsp_signs_enabled = 1         " enable signs in gutter
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 
-" Java {{{
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
+if executable('pyls')
+    " pip install python-language-server
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+if executable('cquery')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'cquery',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'cquery --language-server']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery' },
+      \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+      \ })
+endif
+
+if executable('javascript-typescript-stdio')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'javascript-typescript-stdio',
+        \ 'cmd': {server_info->['javascript-typescript-stdio']},
+        \ 'whitelist': ['javascript', 'typescript'],
+        \ })
+endif
 " }}}
 
 " Javascript {{{
@@ -198,4 +214,3 @@ au FileType c,cpp hi link CTagsStructure Structure
 au FileType c,cpp hi link CTagsNamespace Structure
 au FileType c,cpp hi link CTagsType Structure
 " }}}
-
