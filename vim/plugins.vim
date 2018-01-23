@@ -25,7 +25,7 @@ Plug 'wincent/terminus'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 " Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'majutsushi/tagbar'
-" Plug 'ryanoasis/vim-devicons'
+Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
 " Plug 'vim-scripts/TagHighlight'
 
@@ -42,8 +42,9 @@ Plug 'pangloss/vim-javascript'
 " Plug 'dylon/vim-antlr'
 " Plug 'jez/vim-better-sml'
 " Plug 'othree/html5.vim'
-" Plug 'tikhomirov/vim-glsl'
+Plug 'tikhomirov/vim-glsl'
 
 Plug 'derekwyatt/vim-fswitch'
 " Plug 'mattn/emmet-vim'
+"
 call plug#end()

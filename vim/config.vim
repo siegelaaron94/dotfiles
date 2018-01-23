@@ -15,6 +15,10 @@ set clipboard=unnamedplus
 
 set visualbell
 
+" set fillchars=vert:│,fold:─
+set fillchars=
+autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
+
 " set hlsearch
 " set incsearch
 " set ignorecase
@@ -153,7 +157,6 @@ let g:lsp_signs_enabled = 1         " enable signs in gutter
 let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
 
 if executable('pyls')
-    " pip install python-language-server
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
@@ -161,13 +164,21 @@ if executable('pyls')
         \ })
 endif
 
-if executable('cquery')
+if executable('/home/aaron/projects/cquery/build/release/bin/cquery')
     au User lsp_setup call lsp#register_server({
       \ 'name': 'cquery',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, 'cquery --language-server']},
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, '/home/aaron/projects/cquery/build/release/bin/cquery --language-server']},
       \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
       \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery' },
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+      \ })
+endif
+
+if executable('/home/aaron/projects/glsl-language-server/build/glslls')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'glslls',
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, '/home/aaron/projects/glsl-language-server/build/glslls --stdin']},
+      \ 'whitelist': ['glsl'],
       \ })
 endif
 
