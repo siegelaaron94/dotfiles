@@ -168,20 +168,24 @@ if executable('pyls')
         \ })
 endif
 
-if executable('/home/aaron/projects/cquery/build/release/bin/cquery')
+
+let s:lsp_cquery_command = expand('~/projects/language-servers/cquery/build/release/bin/cquery')
+if executable(s:lsp_cquery_command)
     au User lsp_setup call lsp#register_server({
       \ 'name': 'cquery',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, '/home/aaron/projects/cquery/build/release/bin/cquery --language-server']},
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, s:lsp_cquery_command . ' --language-server']},
       \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
       \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery' },
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
       \ })
 endif
 
-if executable('/home/aaron/projects/glsl-language-server/build/glslls')
+
+let s:lsp_glslls_command = expand('~/projects/language-servers/glsl-language-server/build/glslls')
+if executable(s:lsp_glslls_command)
     au User lsp_setup call lsp#register_server({
       \ 'name': 'glslls',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, '/home/aaron/projects/glsl-language-server/build/glslls --stdin']},
+      \ 'cmd': {server_info->[&shell, &shellcmdflag, s:lsp_glslls_command . ' --stdin']},
       \ 'whitelist': ['glsl'],
       \ })
 endif
