@@ -15,11 +15,6 @@ set clipboard=unnamedplus
 
 set visualbell
 
-" set fillchars=
-" set fillchars=vert:│,fold:─
-set fillchars=vert:│
-autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
-
 " set hlsearch
 " set incsearch
 " set ignorecase
@@ -107,6 +102,12 @@ set updatetime=250
 set colorcolumn=80
 let &colorcolumn=join(range(81,999),",")
 
+
+" set fillchars=
+" set fillchars=vert:│,fold:─
+set fillchars=vert:│
+autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
+
 let g:airline_theme='one'
 let g:airline_powerline_fonts = 1
 let g:onedark_terminal_italics = 1
@@ -125,11 +126,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " CtrlP {{{
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\.git$\|\.hg$\|\.svn$\|\.yardoc\|public\/images\|public\/system\|data\|log\|tmp$',
-            \ 'file': '\.exe$\|\.so$\|\.dat$'
-            \ }
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_extensions = ['cmdpalette']
+if executable('ag')
+    let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
+    let g:ctrlp_use_caching = 0
+else
+    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+endif
+" }}}
+
+" Grep {{{
+" https://robots.thoughtbot.com/faster-grepping-in-vim
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor
+endif
+
+command -nargs=+ -complete=file -bar Grep silent! grep! <args>|cwindow|redraw!
+nnoremap \ :Grep<SPACE>
 " }}}
 
 " Autoformat {{{
