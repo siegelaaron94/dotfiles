@@ -25,9 +25,7 @@ autocmd FileType * setlocal foldmethod=syntax
 autocmd FileType * set foldlevelstart=99
 autocmd FileType * set foldlevel=99
 autocmd FileType vim setlocal foldmethod=marker
-
-" Don't Open Folds While Typeing
-" https://github.com/othree/html5.vim/issues/56 (zanona )
+" Don't Open Folds While Typeing https://github.com/othree/html5.vim/issues/56 (zanona )
 function! s:OnInsertModeEnter()
     if !exists('w:last_fdm')
         let w:last_fdm = &foldmethod
@@ -127,6 +125,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " CtrlP {{{
 let g:ctrlp_extensions = ['cmdpalette']
+let g:ctrlp_cmdpalette_execute = 1
 if executable('ag')
     let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
     let g:ctrlp_use_caching = 0
@@ -225,6 +224,12 @@ let g:jsx_ext_required = 0
 " }}}
 
 " C/C++ Highlighting {{{
+let g:cpp_class_scope_highlight = 1
+let g:cpp_member_variable_highlight = 1
+let g:cpp_class_decl_highlight = 1
+let g:cpp_simple_template_highlight = 1
+let g:cpp_concepts_highlight = 1
+
 let cOperatorList  = '[-&|+<>=*/!~]' " A list of symbols that we don't want to immediately precede the operator
 let cOperatorList .= '\@<!'          " Negative look-behind (check that the preceding symbols aren't there)
 let cOperatorList .= '\%('           " Beginning of a list of possible operators
