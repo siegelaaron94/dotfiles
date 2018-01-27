@@ -15,8 +15,9 @@ set clipboard=unnamedplus
 
 set visualbell
 
+" set fillchars=
 " set fillchars=vert:│,fold:─
-set fillchars=
+set fillchars=vert:│
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 
 " set hlsearch
@@ -153,17 +154,22 @@ augroup END
 " }}}
 
 " Language Server Protocal {{{
+" let g:lsp_log_verbose = 1
+" let g:lsp_log_file = expand('~/vim-lsp.log')
+let g:lsp_signs_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_async_completion = 1
+
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-
-let g:lsp_signs_enabled = 1         " enable signs in gutter
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+nnoremap <silent> K :LspHover<CR>
 
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'pyls',
         \ 'cmd': {server_info->['pyls']},
+        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'requirements.txt'))},
         \ 'whitelist': ['python'],
         \ })
 endif
@@ -194,7 +200,8 @@ if executable('javascript-typescript-stdio')
     au User lsp_setup call lsp#register_server({
         \ 'name': 'javascript-typescript-stdio',
         \ 'cmd': {server_info->['javascript-typescript-stdio']},
-        \ 'whitelist': ['javascript', 'typescript'],
+        \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'package.json'))},
+        \ 'whitelist': ['javascript', 'javascript.jsx', 'typescript'],
         \ })
 endif
 " }}}
