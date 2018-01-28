@@ -1,4 +1,3 @@
-set shell=bash
 set hidden
 set nobackup
 set nowritebackup

@@ -3,6 +3,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+packadd termdebug
+
 call plug#begin('~/.vim/plugged')
 
 " Plug 'tpope/vim-repeat'
