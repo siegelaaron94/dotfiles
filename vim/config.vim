@@ -15,10 +15,9 @@ set clipboard=unnamedplus
 
 set visualbell
 
-" set hlsearch
-" set incsearch
-" set ignorecase
-" set smartcase
+set hlsearch
+set incsearch
+set smartcase
 
 " Code Folding {{{
 autocmd FileType * setlocal foldmethod=syntax
@@ -124,7 +123,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " CtrlP {{{
-let g:ctrlp_extensions = ['cmdpalette']
+let g:ctrlp_extensions = ['cmdpalette', 'tag']
 let g:ctrlp_cmdpalette_execute = 1
 if executable('ag')
     let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
@@ -141,7 +140,6 @@ if executable('ag')
 endif
 
 command -nargs=+ -complete=file -bar Grep silent! grep! <args>|cwindow|redraw!
-nnoremap \ :Grep<SPACE>
 " }}}
 
 " Autoformat {{{
@@ -172,10 +170,6 @@ let g:lsp_signs_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_async_completion = 1
 
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-nnoremap <silent> K :LspHover<CR>
 
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
@@ -216,6 +210,10 @@ if executable('javascript-typescript-stdio')
         \ 'whitelist': ['javascript', 'javascript.jsx', 'typescript'],
         \ })
 endif
+" }}}
+
+" Gutentags {{{
+let g:gutentags_ctags_exclude = ['node_modules', 'thirdparty', '.vscode', 'build']
 " }}}
 
 " Javascript {{{
