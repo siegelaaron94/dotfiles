@@ -2,3 +2,4 @@ gnomeshell-extension-manage
 *.deb
 vim/plugged
 vim/autoload/plug.vim
+tags

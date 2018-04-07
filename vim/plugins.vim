@@ -19,7 +19,7 @@ Plug 'tpope/vim-surround'
 Plug 'haya14busa/is.vim'
 
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'vim-airline/vim-airline'
 Plug 'majutsushi/tagbar'
 
@@ -27,12 +27,13 @@ Plug 'rakr/vim-one'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'ryanoasis/vim-devicons'
-Plug 'vim-scripts/TagHighlight'
+" Plug 'vim-scripts/TagHighlight'
 Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'Chiel92/vim-autoformat'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'sheerun/vim-polyglot'
+
 Plug 'siegelaaron94/vim-lsp', {'branch': 'support-document-changes'}
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'

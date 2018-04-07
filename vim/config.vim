@@ -126,7 +126,7 @@ let g:ctrlp_extensions = ['cmdpalette', 'tag']
 let g:ctrlp_cmdpalette_execute = 1
 if executable('ag')
     let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
-    let g:ctrlp_use_caching = 0
+    " let g:ctrlp_use_caching = 1
 else
     let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 endif
@@ -142,6 +142,7 @@ command -nargs=+ -complete=file -bar Grep silent! grep! <args>|cwindow|redraw!
 " }}}
 
 " Autoformat {{{
+let g:formatters_python = ['yapf']
 let g:formatters_javascript_jsx = [
             \ 'eslint_local',
             \ 'jsbeautify_javascript',
@@ -166,9 +167,11 @@ augroup END
 " let g:lsp_log_verbose = 1
 " let g:lsp_log_file = expand('~/vim-lsp.log')
 let g:lsp_signs_enabled = 1
+let g:lsp_auto_enable = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:lsp_async_completion = 1
-
+let g:asyncomplete_remove_duplicates = 1
+let g:asyncomplete_auto_popup = 0
 
 if executable('pyls')
     au User lsp_setup call lsp#register_server({
@@ -186,20 +189,20 @@ if executable(s:lsp_cquery_command)
       \ 'name': 'cquery',
       \ 'cmd': {server_info->[&shell, &shellcmdflag, s:lsp_cquery_command . ' --language-server']},
       \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': { 'cacheDirectory': '/tmp/cquery' },
+      \ 'initialization_options': { 'cacheDirectory': '.vscode/cquery_cached_index' },
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
       \ })
 endif
 
 
-let s:lsp_glslls_command = expand('~/projects/language-servers/glsl-language-server/build/glslls')
-if executable(s:lsp_glslls_command)
-    au User lsp_setup call lsp#register_server({
-      \ 'name': 'glslls',
-      \ 'cmd': {server_info->[&shell, &shellcmdflag, s:lsp_glslls_command . ' --stdin']},
-      \ 'whitelist': ['glsl'],
-      \ })
-endif
+" let s:lsp_glslls_command = expand('~/projects/language-servers/glsl-language-server/build/glslls')
+" if executable(s:lsp_glslls_command)
+"     au User lsp_setup call lsp#register_server({
+"       \ 'name': 'glslls',
+"       \ 'cmd': {server_info->[&shell, &shellcmdflag, s:lsp_glslls_command . ' --stdin']},
+"       \ 'whitelist': ['glsl'],
+"       \ })
+" endif
 
 if executable('javascript-typescript-stdio')
     au User lsp_setup call lsp#register_server({
