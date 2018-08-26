@@ -112,7 +112,7 @@ let g:gitgutter_eager = 1
 let g:gitgutter_max_signs=9999
 
 syntax on
-set background=dark
+set background=light
 colorscheme one
 
 " Start NERDTree closed.

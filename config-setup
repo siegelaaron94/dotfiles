@@ -6,7 +6,7 @@ popd > /dev/null
 rm  -f ~/.vimrc
 ln -sf $DOTFILE_PATH/vimrc ~/.vimrc 
 
-rm -f ~/.vim
+rm -rf ~/.vim
 ln -sf $DOTFILE_PATH/vim  ~/.vim 
 
 mkdir -p ~/.config/fish
@@ -21,7 +21,7 @@ mkdir -p ~/.config/fish/functions
 rm -f ~/.config/fish/functions/manage.fish
 ln -sf $DOTFILE_PATH/config/fish/functions/manage.fish ~/.config/fish/functions/manage.fish
 
-rm -f ~/Pictures/Wallpapers
+rm -rf ~/Pictures/Wallpapers
 ln -sf $DOTFILE_PATH/Wallpapers ~/Pictures
 
 rm -f ~/.ycm_extra_conf.py
