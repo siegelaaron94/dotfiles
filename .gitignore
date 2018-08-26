@@ -3,3 +3,6 @@ gnomeshell-extension-manage
 vim/plugged
 vim/autoload/plug.vim
 tags
+.DS_Store
+tmux/plugins
+!tmux/plugins/tpm

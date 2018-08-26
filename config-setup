@@ -33,5 +33,5 @@ ln -sf $DOTFILE_PATH/config/omf/theme ~/.config/omf/theme
 rm -rf ~/.tmux.conf
 ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
 
-rm -rf ~/.tmux-themepack
-ln -sf $DOTFILE_PATH/tmux-themepack ~/.tmux-themepack
+rm -rf ~/.tmux
+ln -sf $DOTFILE_PATH/tmux  ~/.tmux 
