@@ -157,10 +157,10 @@ let g:formatters_jsx = [
             \ 'standard_javascript',
             \ 'xo_javascript'
             \ ]
-augroup AutoformatGroup
-    autocmd FileType c,cpp,python,java,javascript,javascript.jsx,html,css
-        \ autocmd! AutoformatGroup BufWritePre <buffer> :Autoformat
-augroup END
+" augroup AutoformatGroup
+"     autocmd FileType c,cpp,python,java,javascript,javascript.jsx,html,css
+"         \ autocmd! AutoformatGroup BufWritePre <buffer> :Autoformat
+" augroup END
 " }}}
 
 " Language Server Protocal {{{

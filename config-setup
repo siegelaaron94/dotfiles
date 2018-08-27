@@ -35,3 +35,6 @@ ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
 
 rm -rf ~/.tmux
 ln -sf $DOTFILE_PATH/tmux  ~/.tmux 
+
+rm -f /usr/local/bin/switch-header
+ln -sf $DOTFILE_PATH/switch-header.py /usr/local/bin/switch-header

@@ -17,6 +17,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'haya14busa/is.vim'
+Plug 'ddrscott/vim-side-search'
 
 Plug 'scrooloose/nerdtree'
 " Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -31,7 +32,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'Chiel92/vim-autoformat'
-Plug 'derekwyatt/vim-fswitch'
 Plug 'sheerun/vim-polyglot'
 
 Plug 'siegelaaron94/vim-lsp', {'branch': 'support-document-changes'}

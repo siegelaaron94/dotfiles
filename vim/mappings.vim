@@ -38,7 +38,11 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 " \ will start project search
 nnoremap \ :Grep<SPACE>
 
-autocmd FileType c,cpp nnoremap <buffer> <F4> :FSHere<CR>
+function! SwitchHeaderSource()
+    execute 'edit' system('switch-header '. expand("%"))
+endfunc
+
+autocmd FileType c,cpp nnoremap <buffer> <C-k><C-o> :call SwitchHeaderSource()<CR>
 autocmd FileType c,cpp nnoremap <buffer> <leader>sl :FSSplitRight<CR>
 autocmd FileType c,cpp nnoremap <buffer> <leader>sh :FSSplitLeft<CR>
 autocmd FileType c,cpp nnoremap <buffer> <leader>sk :FSSplitAbove<CR>
