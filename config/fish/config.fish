@@ -26,4 +26,4 @@ set -g theme_color_scheme light
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 
-set -gx PATH $HOME/opt/x86_64-elf-gcc/bin $HOME/opt/i686-elf-gcc/bin $PATH
+set -gx PATH $HOME/.tools $HOME/opt/x86_64-elf-gcc/bin $HOME/opt/i686-elf-gcc/bin $PATH

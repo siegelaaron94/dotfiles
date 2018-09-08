@@ -1,15 +1,11 @@
-#!/usr/bin/python
+#!/usr/bin/python2
 import os, sys
 SOUCE_HEADER_MAP = {
-    ".cpp": set([ ".hpp", ".h" ]),
-    ".c": set([ ".h" ])
+    ".hpp": [".cpp"],
+    ".cpp": [ ".hpp", ".h" ],
+    ".h": [".c", ".cpp"],
+    ".c": [ ".h" ],
 }
-
-for key in SOUCE_HEADER_MAP.keys():
-    for ext in SOUCE_HEADER_MAP[key]:
-        if ext not in SOUCE_HEADER_MAP.keys():
-            SOUCE_HEADER_MAP[ext] = set([])
-        SOUCE_HEADER_MAP[ext].add(key)
 
 def path_splitall(path):
     path = os.path.normpath(path)
@@ -44,7 +40,7 @@ def detect_header_source_convention(source_file, project_root='.'):
                 potential_others[other] += 1
     potential_others = [ (other, potential_others[other]) for other in potential_others ]
     potential_others.sort(key=lambda x: x[1], reverse=True)
-    return potential_others[0][0]
+    return potential_others + [(os.path.join(basepath, name + SOUCE_HEADER_MAP[ext][0]), 0)]
 
 
 def switch_header_source(source_file, project_root=".", generate_new=False):
@@ -70,7 +66,7 @@ def switch_header_source(source_file, project_root=".", generate_new=False):
 
     if not potential_others:
         if generate_new:
-            return detect_header_source_convention(source_file, project_root)
+            potential_others = detect_header_source_convention(source_file, project_root)
         else:
             return None
 
