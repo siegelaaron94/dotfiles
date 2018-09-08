@@ -37,4 +37,4 @@ rm -rf ~/.tmux
 ln -sf $DOTFILE_PATH/tmux  ~/.tmux 
 
 mkdir -p ~/.tools
-ln -sf $DOTFILE_PATH/switch-header.py ~/.tools/switch-header
+ln -sf $DOTFILE_PATH/tools/switch-header.py ~/.tools/switch-header
