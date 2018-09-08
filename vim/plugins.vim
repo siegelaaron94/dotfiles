@@ -33,8 +33,9 @@ Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'Chiel92/vim-autoformat'
 Plug 'sheerun/vim-polyglot'
+Plug 'Shirk/vim-gas'
 
-Plug 'siegelaaron94/vim-lsp', {'branch': 'support-document-changes'}
+Plug 'prabirshrestha/vim-lsp'
 Plug 'prabirshrestha/async.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
