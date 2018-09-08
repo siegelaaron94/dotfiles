@@ -18,6 +18,10 @@ set hlsearch
 set incsearch
 set smartcase
 
+" {{{ File Syntax
+autocmd BufNewFile,BufRead *.S set syntax=gas
+" }}}
+
 " Code Folding {{{
 autocmd FileType * setlocal foldmethod=syntax
 autocmd FileType * set foldlevelstart=99
@@ -112,7 +116,7 @@ let g:gitgutter_eager = 1
 let g:gitgutter_max_signs=9999
 
 syntax on
-set background=dark
+" set background=dark
 colorscheme one
 
 " Start NERDTree closed.
@@ -182,20 +186,28 @@ if executable('pyls')
         \ })
 endif
 
+function! s:cquery_setup() abort
+    let l:nearest_path = lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json')
+    if empty(l:nearest_path)
+        let l:nearest_path = lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.cquery')
+    endif
+    let l:cache_directory = expand(l:nearest_path . '/.vscode/cquery_cached_index')
 
-let s:lsp_cquery_command = expand('~/projects/language-servers/cquery/build/release/bin/cquery')
-if executable(s:lsp_cquery_command)
-    au User lsp_setup call lsp#register_server({
+    call lsp#register_server({
       \ 'name': 'cquery',
       \ 'cmd': {server_info->[&shell, &shellcmdflag, s:lsp_cquery_command . ' --language-server']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
-      \ 'initialization_options': { 'cacheDirectory': '.vscode/cquery_cached_index' },
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(l:nearest_path)},
+      \ 'initialization_options': { 'cacheDirectory':  l:cache_directory },
       \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
       \ })
+endfunction
+let s:lsp_cquery_command = expand('~/projects/thirdparty/cquery/build/release/bin/cquery')
+if executable(s:lsp_cquery_command)
+    au User lsp_setup call s:cquery_setup()
 endif
 
 
-" let s:lsp_glslls_command = expand('~/projects/language-servers/glsl-language-server/build/glslls')
+" let s:lsp_glslls_command = expand('~/projects/thirdparty/glsl-language-server/build/glslls')
 " if executable(s:lsp_glslls_command)
 "     au User lsp_setup call lsp#register_server({
 "       \ 'name': 'glslls',
