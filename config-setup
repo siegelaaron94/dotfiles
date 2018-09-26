@@ -36,5 +36,8 @@ ln -sf $DOTFILE_PATH/tmux.conf ~/.tmux.conf
 rm -rf ~/.tmux
 ln -sf $DOTFILE_PATH/tmux  ~/.tmux 
 
+rm -rf ~/.minttyrc
+cat $DOTFILE_PATH/mintty/dracula.minttyrc $DOTFILE_PATH/minttyrc > ~/.minttyrc
+
 mkdir -p ~/.tools
 ln -sf $DOTFILE_PATH/tools/switch-header.py ~/.tools/switch-header

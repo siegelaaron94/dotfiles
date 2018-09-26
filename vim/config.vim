@@ -108,7 +108,7 @@ let &colorcolumn=join(range(81,999),",")
 set fillchars=vert:│
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 
-let g:airline_theme='one'
+let g:airline_theme='dracula'
 let g:airline_powerline_fonts = 1
 let g:onedark_terminal_italics = 1
 let g:gitgutter_realtime = 1
@@ -116,8 +116,7 @@ let g:gitgutter_eager = 1
 let g:gitgutter_max_signs=9999
 
 syntax on
-set background=light
-colorscheme one
+colorscheme dracula
 
 " Start NERDTree closed.
 autocmd VimEnter * NERDTreeClose

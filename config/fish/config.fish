@@ -1,5 +1,4 @@
 set fish_greeting
-eval (python -m virtualfish auto_activation)
 set -g theme_display_git yes
 set -g theme_display_git_untracked yes
 set -g theme_display_git_ahead_verbose yes
@@ -26,4 +25,6 @@ set -g theme_color_scheme light
 set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 
-set -gx PATH $HOME/.tools $HOME/opt/x86_64-elf-gcc/bin $HOME/opt/i686-elf-gcc/bin $PATH
+set -gx PATH $HOME/.tools $PATH
+# set -gx PATH $HOME/opt/x86_64-elf-gcc/bin $HOME/opt/i686-elf-gcc/bin $PATH
+# eval (python -m virtualfish auto_activation)

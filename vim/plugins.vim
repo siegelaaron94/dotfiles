@@ -24,7 +24,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'majutsushi/tagbar'
 
-Plug 'rakr/vim-one'
+Plug 'dracula/vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'wincent/terminus'
 Plug 'ryanoasis/vim-devicons'
