@@ -10,7 +10,7 @@ set softtabstop=4
 set expandtab
 set number
 set nowrap
-set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 set visualbell
 
@@ -127,11 +127,12 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " CtrlP {{{
 let g:ctrlp_extensions = ['cmdpalette', 'tag']
 let g:ctrlp_cmdpalette_execute = 1
+let g:ctrlp_root_markers = ['.repo']
+" let g:ctrlp_use_caching = 1
 if executable('ag')
-    let g:ctrlp_user_command = ['.git', 'ag %s -l --nocolor -g ""']
-    " let g:ctrlp_use_caching = 1
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 else
-    let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+    let g:ctrlp_user_command = 'cd %s && git ls-files -co --exclude-standard'
 endif
 " }}}
 

@@ -26,5 +26,8 @@ set -g fish_prompt_pwd_dir_length 0
 set -g theme_project_dir_length 1
 
 set -gx PATH $HOME/.tools $PATH
+if test -d $HOME/projects/Suite13/Bootstrap
+    set -gx PATH $HOME/projects/Suite13/Bootstrap $PATH
+end
 # set -gx PATH $HOME/opt/x86_64-elf-gcc/bin $HOME/opt/i686-elf-gcc/bin $PATH
 # eval (python -m virtualfish auto_activation)

@@ -25,7 +25,7 @@ inoremap <silent><expr> <TAB>
   \ asyncomplete#force_refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-nnoremap <S-n> :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>o :TagbarToggle<CR>
 " nnoremap <silent>K :LspHover<CR>
 " nnoremap <silent><F2> :LspDefinition<CR>
