@@ -1,0 +1,15 @@
+atom-ide-ui@0.13.0
+autocomplete-cmake@0.3.1
+build@0.70.0
+build-cmake@0.12.0
+busy-signal@1.4.3
+dracula-syntax@2.0.7
+ide-cquery@0.13.6
+intentions@1.1.5
+language-cmake@1.1.0
+language-glsl@2.0.4
+linter@2.2.0
+linter-eslint@8.4.1
+linter-ui-default@1.7.1
+switch-header-source@0.32.0
+

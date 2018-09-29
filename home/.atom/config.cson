@@ -1,0 +1,33 @@
+"*":
+  "atom-ide-ui":
+    "atom-ide-code-format": {}
+  build:
+    panelVisibility: "Keep Visible"
+  "build-cmake":
+    buildRoot: "${projectDir}/build/${name}"
+  core:
+    disabledPackages: [
+      "linter"
+      "build-cmake"
+    ]
+    telemetryConsent: "limited"
+    themes: [
+      "one-dark-ui"
+      "dracula-syntax"
+    ]
+  editor:
+    fontSize: 20
+    tabLength: 4
+  "exception-reporting":
+    userId: "5a86d085-79ff-43fd-b8b8-bc2d7d3d7b1d"
+  "ide-cquery":
+    cqueryPath: "/home/aaron/projects/thirdparty/cquery/build/release/bin/cquery"
+    enableSetInactiveRegions: true
+    initializationOptions:
+      client: {}
+  "linter-eslint":
+    fixOnSave: true
+  "linter-ui-default":
+    panelHeight: 455
+  welcome:
+    showOnStartup: false

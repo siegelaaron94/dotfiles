@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+echo "$@"
+
+compdb -p "$@" list | sed "s#/usr/bin/g++#/usr/bin/clang++#g" | sed "s#/usr/bin/gcc#/usr/bin/clang#g" > compile_commands.json

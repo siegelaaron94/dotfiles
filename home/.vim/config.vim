@@ -1,3 +1,4 @@
+set shell=/bin/bash
 set hidden
 set nobackup
 set nowritebackup
@@ -7,10 +8,10 @@ set mouse+=a
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
-set expandtab
+set noexpandtab
 set number
 set nowrap
-" set clipboard=unnamedplus
+set clipboard=unnamedplus
 
 set visualbell
 
@@ -116,7 +117,7 @@ let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_max_signs=9999
 
-" Setup 
+" Setup
 set diffopt=filler,vertical
 set noshowmode
 set updatetime=250
@@ -169,10 +170,19 @@ let g:formatters_jsx = [
             \ 'standard_javascript',
             \ 'xo_javascript'
             \ ]
-" augroup AutoformatGroup
-"     autocmd FileType c,cpp,python,java,javascript,javascript.jsx,html,css
-"         \ autocmd! AutoformatGroup BufWritePre <buffer> :Autoformat
-" augroup END
+
+function! s:SafeAutoSave() abort
+    let l:nearest_path = lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), '.clang-format')
+    if !empty(l:nearest_path)
+		execute 'Autoformat'
+    endif
+endfunction
+
+augroup AutoformatGroup
+    autocmd FileType c,cpp,python,java,javascript,javascript.jsx,html,css
+        \ autocmd! AutoformatGroup BufWritePre <buffer> :call s:SafeAutoSave()
+augroup END
+
 " }}}
 
 " Language Server Protocal {{{

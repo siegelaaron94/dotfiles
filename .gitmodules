@@ -1,9 +1,12 @@
-[submodule "tmux/plugins/tpm"]
-	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
-[submodule "mintty"]
-	path = mintty
+[submodule "src/gnome-terminal-colors-dracula"]
+	path = src/gnome-terminal-colors-dracula
+	url = https://github.com/GalaticStryder/gnome-terminal-colors-dracula
+[submodule "src/mintty"]
+	path = src/mintty
 	url = https://github.com/dracula/mintty.git
-[submodule "iterm"]
-	path = iterm
+[submodule "src/iterm"]
+	path = src/iterm
 	url = https://github.com/dracula/iterm.git
+[submodule "src/xcode"]
+	path = src/xcode
+	url = https://github.com/dracula/xcode.git

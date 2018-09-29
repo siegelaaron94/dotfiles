@@ -1,8 +1,0 @@
-gnomeshell-extension-manage
-*.deb
-vim/plugged
-vim/autoload/plug.vim
-tags
-.DS_Store
-tmux/plugins
-!tmux/plugins/tpm
