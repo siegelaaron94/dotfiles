@@ -95,28 +95,36 @@ autocmd FileType html,htmldjango setlocal foldexpr=HTMLFolds()
 " }}}
 
 " UI {{{
-set diffopt=filler,vertical
+
+" Setup dracula syntax theme
+let g:dracula_italic = 0
+let g:dracula_colorterm = 0
+
+set t_Co=256
+set background=dark
+colorscheme dracula
+highlight Normal ctermbg=None
+syntax enable
 set termguicolors
+
+" Setup dracula airline theme
+let g:airline_theme='dracula'
+let g:airline_powerline_fonts = 1
+
+" Setup git gutter
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_max_signs=9999
+
+" Setup 
+set diffopt=filler,vertical
 set noshowmode
 set updatetime=250
 set colorcolumn=80
 let &colorcolumn=join(range(81,999),",")
 
-
-" set fillchars=
-" set fillchars=vert:│,fold:─
 set fillchars=vert:│
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
-
-let g:airline_theme='dracula'
-let g:airline_powerline_fonts = 1
-let g:onedark_terminal_italics = 1
-let g:gitgutter_realtime = 1
-let g:gitgutter_eager = 1
-let g:gitgutter_max_signs=9999
-
-syntax on
-colorscheme dracula
 
 " Start NERDTree closed.
 autocmd VimEnter * NERDTreeClose
@@ -125,15 +133,15 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " }}}
 
 " CtrlP {{{
+let g:ctrlp_use_caching = 1
+let g:ctrlp_max_files=0
 let g:ctrlp_extensions = ['cmdpalette', 'tag']
-let g:ctrlp_cmdpalette_execute = 1
-let g:ctrlp_root_markers = ['.repo']
-" let g:ctrlp_use_caching = 1
-if executable('ag')
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-else
-    let g:ctrlp_user_command = 'cd %s && git ls-files -co --exclude-standard'
-endif
+let g:ctrlp_cmdpalette_execute = 0
+let g:ctrlp_root_markers = ['.ctrlp', '.repo' ,'.vscode']
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v(build|\.(git|hg|svn|vscode))$',
+  \ 'file': '\v\.(exe|so|dll)$',
+  \ }
 " }}}
 
 " Grep {{{
@@ -227,7 +235,21 @@ endif
 " }}}
 
 " Gutentags {{{
-let g:gutentags_ctags_exclude = ['node_modules', 'thirdparty', '.vscode', 'build']
+let g:gutentags_ctags_exclude = ['.git', '.hg', '.svn', '.repo', '.vscode', 'build']
+
+" enable gtags module
+let g:gutentags_modules = ['ctags', 'gtags_cscope']
+
+" config project root markers.
+let g:gutentags_add_default_project_roots = 0
+let g:gutentags_project_root = ['.repo', '.vscode']
+
+" generate datebases in my cache directory, prevent gtags files polluting project
+let g:gutentags_cache_dir = expand('~/.cache/tags')
+
+" forbid gutentags adding gtags databases
+let g:gutentags_auto_add_gtags_cscope = 0
+
 " }}}
 
 " Javascript {{{
