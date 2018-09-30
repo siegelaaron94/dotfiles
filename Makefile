@@ -7,17 +7,16 @@ define windows_to_wsl
 endef
 
 DOTFILES := $(FILES_IN_GIT)
-ifneq ($(shell grep Microsoft /proc/version),)
+ifeq ($(UNAME_S),Darwin)
+	DOTFILES += $(HOME)/Library/Developer/Xcode/UserData/FontAndColorThemes/Dracula.xccolortheme
+	DOTFILES += $(HOME)/.atom/installed-packages.txt
+else ifneq ($(shell grep Microsoft /proc/version),)
 	USERNAME := $(shell cmd.exe /c "echo %USERNAME%")
 	LOCALAPPDATA := $(call windows_to_wsl,$(shell cmd.exe /c "echo %LOCALAPPDATA%"))
 	DOTFILES += $(HOME)/.minttyrc
 	DOTFILES += $(LOCALAPPDATA)/wsltty/home/$(USERNAME)/.minttyrc
 else
 	DOTFILES += $(HOME)/.atom/installed-packages.txt
-endif
-	
-ifeq ($(UNAME_S),Darwin)
-	DOTFILES += $(HOME)/Library/Developer/Xcode/UserData/FontAndColorThemes/Dracula.xccolortheme
 endif
 
 all: $(DOTFILES) 
