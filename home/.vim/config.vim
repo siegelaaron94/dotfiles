@@ -127,6 +127,7 @@ let &colorcolumn=join(range(81,999),",")
 set fillchars=vert:│
 autocmd Colorscheme * highlight FoldColumn guifg=bg guibg=bg
 
+let NERDTreeShowHidden=1
 " Start NERDTree closed.
 autocmd VimEnter * NERDTreeClose
 " Close NERDTree when last buffer is closed.
