@@ -146,8 +146,8 @@ let g:ctrlp_extensions = ['cmdpalette', 'tag']
 let g:ctrlp_cmdpalette_execute = 0
 let g:ctrlp_root_markers = ['.ctrlp', '.repo' ,'.vscode']
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(build|\.(git|hg|svn|vscode))$',
-  \ 'file': '\v\.(exe|so|dll)$',
+  \ 'dir':  '\v(build|\.(git|hg|svn|vscode|repo))$',
+  \ 'file': '\v\.(exe|so|dll|a|lib|png|jpg|tiff)$',
   \ }
 " }}}
 
@@ -258,7 +258,7 @@ let g:gutentags_modules = ['ctags', 'gtags_cscope']
 
 " config project root markers.
 let g:gutentags_add_default_project_roots = 0
-let g:gutentags_project_root = ['.repo', '.vscode']
+let g:gutentags_project_root = ['.ctrlp', '.repo', '.vscode']
 
 " generate datebases in my cache directory, prevent gtags files polluting project
 let g:gutentags_cache_dir = expand('~/.cache/tags')
