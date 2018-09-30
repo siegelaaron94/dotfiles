@@ -3,14 +3,18 @@ DOTFILE_PATH := $(shell pwd)
 FILES_IN_GIT := $(patsubst home/%,$(HOME)/%,$(filter home/%,$(shell git ls-files)))
 
 DOTFILES := $(FILES_IN_GIT)
+ifneq ($(shell grep Microsoft /proc/version),)
+	DOTFILES += $(HOME)/.minttyrc
+else
+	DOTFILES += $(HOME)/.atom/installed-packages.txt
+endif
+	
 ifeq ($(UNAME_S),Darwin)
 	DOTFILES += $(HOME)/Library/Developer/Xcode/UserData/FontAndColorThemes/Dracula.xccolortheme
-else ifeq ($(UNAME_S),Linux)
-else
-	DOTFILES += $(HOME)/.minttyrc
 endif
 
-all: $(DOTFILES) $(HOME)/.atom/installed-packages.txt
+
+all: $(DOTFILES) 
 
 $(HOME)/.atom/installed-packages.txt: $(DOTFILE_PATH)/src/atom-packages.txt
 	apm install --packages-file $(DOTFILE_PATH)/src/atom-packages.txt
