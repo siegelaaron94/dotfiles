@@ -1,3 +1,3 @@
 function manage
-    cd (python ~/.tools/project.py pwd $argv[1])
+    cd (python3 ~/.tools/project.py pwd $argv[1])
 end
