@@ -89,8 +89,8 @@ function! HTMLFolds()
     return '='
 endfunction
 
-autocmd FileType html,htmldjango setlocal foldmethod=expr
-autocmd FileType html,htmldjango setlocal foldexpr=HTMLFolds()
+autocmd FileType xml,html,htmldjango setlocal foldmethod=expr
+autocmd FileType xml,html,htmldjango setlocal foldexpr=HTMLFolds()
 " }}}
 
 " }}}
