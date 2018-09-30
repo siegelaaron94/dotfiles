@@ -1,3 +1,5 @@
+let uname = substitute(system('uname'), '\n', '', '')
+
 set shell=/bin/bash
 set hidden
 set nobackup
@@ -11,7 +13,10 @@ set softtabstop=4
 set noexpandtab
 set number
 set nowrap
-set clipboard=unnamedplus
+
+if uname != 'Darwin'
+	set clipboard=unnamedplus
+endif
 
 set visualbell
 
