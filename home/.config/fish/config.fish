@@ -29,8 +29,8 @@ set -gx HUNTER_ROOT $HOME/.hunter
 
 set -gx PATH $HOME/.tools $PATH
 
-if test -d $HOME/projects/Suite13/Bootstrap
-    set -gx PATH $HOME/projects/Suite13/Bootstrap $PATH
+if test -d $HOME/projects/work/Suite13/Bootstrap
+    set -gx PATH $HOME/projects/work/Suite13/Bootstrap $PATH
 end
 
 if test -d $HOME/opt/x86_64-elf-gcc/bin

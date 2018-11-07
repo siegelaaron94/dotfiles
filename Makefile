@@ -12,7 +12,7 @@ ifeq ($(UNAME_S),Darwin)
 	DOTFILES += $(HOME)/.atom/installed-packages.txt
 else ifneq ($(shell grep Microsoft /proc/version),)
 	USERNAME := $(shell cmd.exe /c "echo %USERNAME%")
-	LOCALAPPDATA := $(call windows_to_wsl,$(shell cmd.exe /c "echo %LOCALAPPDATA%"))
+	LOCALAPPDATA := /mnt/c/Users/$(USERNAME)/AppData/Local
 	DOTFILES += $(HOME)/.minttyrc
 	DOTFILES += $(LOCALAPPDATA)/wsltty/home/$(USERNAME)/.minttyrc
 else
